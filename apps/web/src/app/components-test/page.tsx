@@ -126,18 +126,18 @@ const codeExamples = {
 
   alert: `import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
-<Alert>
-    <AlertTitle>Heads up!</AlertTitle>
-    <AlertDescription>
-        You can add components to your app using the cli.
-    </AlertDescription>
-</Alert>
+          <Alert>
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              You can add components to your app using the cli.
+            </AlertDescription>
+          </Alert>
 
-<Alert variant="destructive">
-    <AlertTitle>Error</AlertTitle>
-    <AlertDescription>
-        Your session has expired. Please log in again.
-    </AlertDescription>
+          <Alert variant="destructive">
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>
+              Your session has expired. Please log in again.
+            </AlertDescription>
 </Alert>`,
 
   progress: `import { Progress } from "@/components/ui/progress"
@@ -177,7 +177,7 @@ import { Label } from "@/components/ui/label"
 <div className="space-y-2">
   <Label htmlFor="email">Email</Label>
   <Input type="email" id="email" placeholder="Email" />
-</div>
+        </div>
 
 // Different types
 <Input type="password" placeholder="Password" />
@@ -274,22 +274,22 @@ const [checked, setChecked] = useState(false)
 
   alertDialog: `import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 
-<AlertDialog>
-    <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Alert Dialog</Button>
-    </AlertDialogTrigger>
-    <AlertDialogContent>
-        <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant="outline">Show Alert Dialog</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
                 This action cannot be undone.
-            </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-    </AlertDialogContent>
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
 </AlertDialog>`,
 
   popover: `import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
@@ -495,8 +495,8 @@ export default function ComponentsTestPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50 overflow-x-hidden">
-      <div className="container mx-auto p-8 max-w-full">
+    <div className="min-h-screen bg-gray-50/50">
+      <div className="container mx-auto p-8 max-w-full overflow-x-hidden">
         <header className="mb-12">
           <h1 className="text-4xl font-bold mb-4">
             UI Components & Animation Library
@@ -507,7 +507,7 @@ export default function ComponentsTestPage() {
           </p>
         </header>
 
-        <nav className="mb-12 sticky top-4 z-10 bg-white rounded-lg shadow-lg border border-gray-200 p-4 backdrop-blur-sm bg-white/95">
+        <nav className="mb-12 sticky top-4 z-50 bg-white rounded-lg shadow-lg border border-gray-200 p-4 backdrop-blur-sm bg-white/95">
           <div className="flex flex-wrap gap-2">
             {componentCategories.map((category) => (
               <motion.div
