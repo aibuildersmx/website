@@ -554,11 +554,10 @@ export default function ComponentsTestPage() {
       </Sidebar>
 
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-          <SidebarTrigger />
-          <Separator orientation="vertical" className="h-4" />
-          <div>
-            <h1 className="text-2xl font-bold">
+        <header className="flex h-fit shrink-0 items-center gap-4 px-6 py-4">
+          <SidebarTrigger className="h-8 w-8" />
+          <div className="flex-1">
+            <h1 className="text-xl font-semibold">
               UI Components & Animation Library
             </h1>
             <p className="text-muted-foreground text-sm">
