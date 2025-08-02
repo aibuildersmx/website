@@ -1,6 +1,6 @@
 # Tutorial
 
-A modern job board application built with TypeScript, Next.js, and Supabase.
+A modern fullstack web application built with TypeScript, Next.js, and Supabase.
 
 ## Structure
 
