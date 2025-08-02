@@ -1,0 +1,93 @@
+---
+description: mono repo rules
+globs:
+alwaysApply: true
+---
+
+# Monorepo Structure
+
+This is a Turborepo monorepo with the following structure:
+
+- `/apps/web` - Next.js 15 app with App Router
+- `/apps/supabase` - Supabase backend with migrations
+- Root workspace managed by pnpm
+
+# Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Clerk
+- **Package Manager**: pnpm with workspaces
+- **Build System**: Turborepo
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **State Management**: Zustand (see `/apps/web/src/store/`)
+
+# Development Guidelines
+
+## Code Style
+
+- Use TypeScript with strict mode
+- Prefer functional components with hooks
+- Use async/await over promises
+- Keep components small and focused
+- Colocate related files (component + styles + tests)
+
+## File Organization
+
+- Components go in `/apps/web/src/components/`
+- Shared UI components in `/apps/web/src/components/ui/`
+- API routes in `/apps/web/src/app/api/`
+- Database queries in dedicated query files
+- Keep server and client components clearly separated
+
+## Monorepo Commands
+
+- Use `pnpm` for all package management
+- Run commands from root: `pnpm --filter web dev`
+- Or use Turbo: `pnpm dev` (runs all apps)
+- Add dependencies: `pnpm --filter web add <package>`
+
+## Supabase
+
+- Database migrations in `/apps/supabase/supabase/migrations/`
+- Use Supabase client from `/apps/web/src/lib/supabase.ts`
+- Keep sensitive operations server-side
+- Use for database operations only, not authentication, be wary of RLS
+
+## Clerk Authentication
+
+- Use Clerk for all authentication needs
+- Configure middleware in `/apps/web/src/middleware.ts`
+- Use `@clerk/nextjs` hooks for client-side auth state
+- Protect API routes with `auth()` helper
+- Store user metadata in Clerk, not database
+
+## Best Practices
+
+- Use server components by default
+- Add "use client" only when needed (interactivity, hooks)
+- Implement proper error boundaries
+- Use Next.js Image component for images
+- Leverage ISR/SSG where appropriate
+- Keep bundle size minimal
+
+## Common Patterns
+
+- Authentication: Use Clerk Auth with Next.js middleware
+- Data fetching: Server components for initial data, SWR/React Query for client
+- Forms: React Hook Form with Zod validation
+- Styling: Tailwind utility classes, avoid custom CSS
+
+## Testing
+
+- Unit tests for utilities and hooks
+- Integration tests for API routes
+- E2E tests for critical user flows
+
+## Performance
+
+- Minimize client-side JavaScript
+- Use dynamic imports for heavy components
+- Implement proper caching strategies
+- Optimize images and fonts
