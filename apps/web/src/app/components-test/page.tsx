@@ -82,6 +82,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const CodeBlock = ({ code }: { code: string }) => (
   <div className="w-full bg-gray-900 p-4 rounded-lg overflow-x-hidden">
@@ -502,6 +504,7 @@ export default function ComponentsTestPage() {
   const [isVisible, setIsVisible] = useState(true);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [showCode, setShowCode] = useState<{ [key: string]: boolean }>({});
+  const router = useRouter();
 
   const toggleCode = (componentName: string) => {
     setShowCode((prev) => ({ ...prev, [componentName]: !prev[componentName] }));
@@ -511,7 +514,15 @@ export default function ComponentsTestPage() {
     <SidebarProvider>
       <Sidebar>
         <SidebarHeader>
-          <h2 className="text-lg font-semibold px-2">Components</h2>
+          <Button
+            variant="ghost"
+            className="flex justify-start items-center gap-1 w-fit"
+            onClick={() => router.push("/")}
+            aria-label="Back"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <p className="text-sm font-medium">Home</p>
+          </Button>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
