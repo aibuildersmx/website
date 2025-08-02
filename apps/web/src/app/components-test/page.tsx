@@ -71,9 +71,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const CodeBlock = ({ code }: { code: string }) => (
-  <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-    <code className="text-sm whitespace-pre">{code}</code>
-  </pre>
+  <div className="w-full bg-gray-900 p-4 rounded-lg overflow-x-hidden">
+    <pre className="text-gray-100 overflow-x-scroll scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+      <code className="text-sm whitespace-pre text-wrap">{code}</code>
+    </pre>
+  </div>
 );
 
 const componentCategories = [
@@ -124,18 +126,18 @@ const codeExamples = {
 
   alert: `import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
-          <Alert>
-            <AlertTitle>Heads up!</AlertTitle>
-            <AlertDescription>
-              You can add components to your app using the cli.
-            </AlertDescription>
-          </Alert>
+<Alert>
+    <AlertTitle>Heads up!</AlertTitle>
+    <AlertDescription>
+        You can add components to your app using the cli.
+    </AlertDescription>
+</Alert>
 
-          <Alert variant="destructive">
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription>
-              Your session has expired. Please log in again.
-            </AlertDescription>
+<Alert variant="destructive">
+    <AlertTitle>Error</AlertTitle>
+    <AlertDescription>
+        Your session has expired. Please log in again.
+    </AlertDescription>
 </Alert>`,
 
   progress: `import { Progress } from "@/components/ui/progress"
@@ -493,8 +495,8 @@ export default function ComponentsTestPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
-      <div className="container mx-auto p-8">
+    <div className="min-h-screen bg-gray-50/50 overflow-x-hidden">
+      <div className="container mx-auto p-8 max-w-full">
         <header className="mb-12">
           <h1 className="text-4xl font-bold mb-4">
             UI Components & Animation Library
@@ -552,7 +554,7 @@ export default function ComponentsTestPage() {
                     User representation with image and fallback
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="flex gap-4">
                     <Avatar>
                       <AvatarImage src="https://github.com/shadcn.png" />
@@ -586,7 +588,7 @@ export default function ComponentsTestPage() {
                     Small status descriptors for UI elements
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="flex gap-2">
                     <Badge>Default</Badge>
                     <Badge variant="secondary">Secondary</Badge>
@@ -615,8 +617,8 @@ export default function ComponentsTestPage() {
                     Container for grouping related content
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <Card className="w-[350px]">
+                <CardContent className="space-y-4 overflow-hidden">
+                  <Card className="max-w-[350px] w-full">
                     <CardHeader>
                       <CardTitle>Create project</CardTitle>
                       <CardDescription>
@@ -663,7 +665,7 @@ export default function ComponentsTestPage() {
                     Loading placeholder for content
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="space-y-2">
                     <Skeleton className="h-4 w-[250px]" />
                     <Skeleton className="h-4 w-[200px]" />
@@ -698,7 +700,7 @@ export default function ComponentsTestPage() {
                     Displays important messages to users
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="space-y-4">
                     <Alert>
                       <AlertTitle>Heads up!</AlertTitle>
@@ -735,7 +737,7 @@ export default function ComponentsTestPage() {
                     Shows completion status of a task
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div>
                     <Progress value={progress} className="w-[60%]" />
                     <div className="mt-4">
@@ -770,7 +772,7 @@ export default function ComponentsTestPage() {
                   <CardTitle>Toast</CardTitle>
                   <CardDescription>Brief notification messages</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <Button
                     onClick={() => {
                       toast({
@@ -806,7 +808,7 @@ export default function ComponentsTestPage() {
                   <CardTitle>Button</CardTitle>
                   <CardDescription>Trigger actions and events</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="flex flex-wrap gap-2">
                     <Button>Default</Button>
                     <Button variant="secondary">Secondary</Button>
@@ -842,7 +844,7 @@ export default function ComponentsTestPage() {
                     Text input fields with labels
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="space-y-4 max-w-sm">
                     <div className="space-y-2">
                       <Label htmlFor="email">Your email address</Label>
@@ -871,7 +873,7 @@ export default function ComponentsTestPage() {
                   <CardTitle>Checkbox</CardTitle>
                   <CardDescription>Binary choice input</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="flex items-center space-x-2">
                     <Checkbox
                       id="terms"
@@ -904,7 +906,7 @@ export default function ComponentsTestPage() {
                   <CardTitle>Switch</CardTitle>
                   <CardDescription>Toggle between two states</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="flex items-center space-x-2">
                     <Switch
                       id="airplane-mode"
@@ -937,7 +939,7 @@ export default function ComponentsTestPage() {
                     Choose from a list of options
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <Select>
                     <SelectTrigger className="w-[180px]">
                       <SelectValue placeholder="Select a fruit" />
@@ -970,7 +972,7 @@ export default function ComponentsTestPage() {
                   <CardTitle>Textarea</CardTitle>
                   <CardDescription>Multi-line text input</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <Textarea
                     placeholder="Type your message here."
                     className="max-w-sm"
@@ -1002,7 +1004,7 @@ export default function ComponentsTestPage() {
                   <CardTitle>Dropdown Menu</CardTitle>
                   <CardDescription>Menu of actions and options</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="outline">Open Menu</Button>
@@ -1040,7 +1042,7 @@ export default function ComponentsTestPage() {
                     Organize content into sections
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <Tabs defaultValue="account" className="w-[400px]">
                     <TabsList>
                       <TabsTrigger value="account">Account</TabsTrigger>
@@ -1080,7 +1082,7 @@ export default function ComponentsTestPage() {
                     Modal dialog for user interactions
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <Dialog>
                     <DialogTrigger asChild>
                       <Button variant="outline">Open Dialog</Button>
@@ -1131,7 +1133,7 @@ export default function ComponentsTestPage() {
                     Modal dialog for important confirmations
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <AlertDialog>
                     <AlertDialogTrigger asChild>
                       <Button variant="outline">Show Alert Dialog</Button>
@@ -1176,7 +1178,7 @@ export default function ComponentsTestPage() {
                     Floating container for additional content
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <Popover>
                     <PopoverTrigger asChild>
                       <Button variant="outline">Open popover</Button>
@@ -1223,7 +1225,7 @@ export default function ComponentsTestPage() {
                     Collapsible content sections
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
                       <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -1263,7 +1265,7 @@ export default function ComponentsTestPage() {
                     Visual divider between content
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div>
                     <div className="space-y-1">
                       <h4 className="text-sm font-medium leading-none">
@@ -1313,7 +1315,7 @@ export default function ComponentsTestPage() {
                     Simple opacity transitions with AnimatePresence
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div>
                     <Button
                       onClick={() => setIsVisible(!isVisible)}
@@ -1358,7 +1360,7 @@ export default function ComponentsTestPage() {
                     Hover to see scale and rotation effects
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <motion.div
                     className="w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg mx-auto"
                     whileHover={{ scale: 1.2, rotate: 180 }}
@@ -1389,7 +1391,7 @@ export default function ComponentsTestPage() {
                     Sequential animations for list items
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <motion.ul
                     className="space-y-2"
                     initial="hidden"
@@ -1445,7 +1447,7 @@ export default function ComponentsTestPage() {
                     Drag the box around with constraints
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div className="relative h-64 bg-gray-50 rounded-lg overflow-hidden">
                     <motion.div
                       className="w-20 h-20 bg-green-500 rounded-lg cursor-move absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -1484,7 +1486,7 @@ export default function ComponentsTestPage() {
                     Click items to see smooth layout transitions
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <div>
                     <div className="grid grid-cols-3 gap-2">
                       {["1", "2", "3", "4", "5", "6"].map((id) => (
@@ -1535,7 +1537,7 @@ export default function ComponentsTestPage() {
                   <CardTitle>Path Animation</CardTitle>
                   <CardDescription>SVG path drawing animation</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <svg
                     width="200"
                     height="200"
@@ -1581,7 +1583,7 @@ export default function ComponentsTestPage() {
                     Different animations based on user gestures
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <motion.button
                     className="px-6 py-3 bg-indigo-500 text-white rounded-lg"
                     whileHover={{ scale: 1.05 }}
@@ -1615,7 +1617,7 @@ export default function ComponentsTestPage() {
                     Animation that triggers when scrolling into view
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 overflow-hidden">
                   <motion.div
                     className="p-8 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white text-center"
                     initial={{ opacity: 0, y: 50 }}
