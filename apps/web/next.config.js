@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ["@job-board/ui"],
-};
+const nextConfig = {};
 
 module.exports = nextConfig;
