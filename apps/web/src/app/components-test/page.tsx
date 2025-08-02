@@ -86,6 +86,400 @@ const componentCategories = [
   { name: "Animations", id: "animations" },
 ];
 
+const codeExamples = {
+  avatar: `import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>`,
+
+  badge: `import { Badge } from "@/components/ui/badge"
+
+<Badge>Default</Badge>
+<Badge variant="secondary">Secondary</Badge>
+<Badge variant="outline">Outline</Badge>
+<Badge variant="destructive">Destructive</Badge>`,
+
+  card: `import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card Description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Card Content</p>
+  </CardContent>
+  <CardFooter>
+    <p>Card Footer</p>
+  </CardFooter>
+</Card>`,
+
+  skeleton: `import { Skeleton } from "@/components/ui/skeleton"
+
+<Skeleton className="h-4 w-[250px]" />
+<Skeleton className="h-4 w-[200px]" />
+<Skeleton className="h-4 w-[150px]" />`,
+
+  alert: `import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+
+          <Alert>
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              You can add components to your app using the cli.
+            </AlertDescription>
+          </Alert>
+
+          <Alert variant="destructive">
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>
+              Your session has expired. Please log in again.
+            </AlertDescription>
+</Alert>`,
+
+  progress: `import { Progress } from "@/components/ui/progress"
+
+<Progress value={33} className="w-[60%]" />`,
+
+  toast: `import { toast } from "@/hooks/use-toast"
+
+toast({
+  title: "Scheduled: Catch up",
+  description: "Friday, February 10, 2023 at 5:57 PM",
+})
+
+// Don't forget to add <Toaster /> to your root layout`,
+
+  button: `import { Button } from "@/components/ui/button"
+
+// Variants
+<Button>Default</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
+
+// Sizes
+<Button size="sm">Small</Button>
+<Button size="lg">Large</Button>
+
+// States
+<Button disabled>Disabled</Button>`,
+
+  input: `import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+// With Label
+<div className="space-y-2">
+  <Label htmlFor="email">Email</Label>
+  <Input type="email" id="email" placeholder="Email" />
+        </div>
+
+// Different types
+<Input type="password" placeholder="Password" />
+<Input disabled placeholder="Disabled input" />`,
+
+  checkbox: `import { Checkbox } from "@/components/ui/checkbox"
+
+const [checked, setChecked] = useState(false)
+
+<Checkbox
+  id="terms"
+  checked={checked}
+  onCheckedChange={(value) => setChecked(value === true)}
+/>`,
+
+  switch: `import { Switch } from "@/components/ui/switch"
+
+const [checked, setChecked] = useState(false)
+
+<Switch
+  id="airplane-mode"
+  checked={checked}
+  onCheckedChange={setChecked}
+/>`,
+
+  select: `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+
+<Select>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="Select a fruit" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana</SelectItem>
+    <SelectItem value="orange">Orange</SelectItem>
+  </SelectContent>
+</Select>`,
+
+  textarea: `import { Textarea } from "@/components/ui/textarea"
+
+<Textarea
+  placeholder="Type your message here."
+  className="max-w-sm"
+/>`,
+
+  dropdown: `import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">Open Menu</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+    <DropdownMenuItem>Team</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`,
+
+  tabs: `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+<Tabs defaultValue="account" className="w-[400px]">
+  <TabsList>
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">
+    <p>Make changes to your account here.</p>
+  </TabsContent>
+  <TabsContent value="password">
+    <p>Change your password here.</p>
+  </TabsContent>
+</Tabs>`,
+
+  dialog: `import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+
+<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="outline">Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>
+        Dialog description goes here.
+      </DialogDescription>
+    </DialogHeader>
+    <div>
+      Your content here
+    </div>
+  </DialogContent>
+</Dialog>`,
+
+  alertDialog: `import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
+
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant="outline">Show Alert Dialog</Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+        This action cannot be undone.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+</AlertDialog>`,
+
+  popover: `import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+
+<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline">Open popover</Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-80">
+    <div className="grid gap-4">
+      <div className="space-y-2">
+        <h4 className="font-medium leading-none">Title</h4>
+        <p className="text-sm text-muted-foreground">
+          Content goes here.
+        </p>
+      </div>
+    </div>
+  </PopoverContent>
+</Popover>`,
+
+  accordion: `import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>Is it styled?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It comes with default styles.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>`,
+
+  separator: `import { Separator } from "@/components/ui/separator"
+
+// Horizontal separator
+<Separator />
+
+// Vertical separator
+<Separator orientation="vertical" />
+
+// With custom spacing
+<Separator className="my-4" />`,
+
+  fadeAnimation: `import { motion, AnimatePresence } from "framer-motion"
+
+<AnimatePresence>
+  {isVisible && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      Your content here
+    </motion.div>
+  )}
+</AnimatePresence>`,
+
+  scaleRotateAnimation: `import { motion } from "framer-motion"
+
+<motion.div
+  whileHover={{ scale: 1.2, rotate: 180 }}
+  whileTap={{ scale: 0.9 }}
+  transition={{ 
+    type: "spring", 
+    stiffness: 260, 
+    damping: 20 
+  }}
+>
+  Hover me!
+</motion.div>`,
+
+  staggerAnimation: `import { motion } from "framer-motion"
+
+<motion.ul
+  initial="hidden"
+  animate="visible"
+  variants={{
+    visible: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }}
+>
+  {items.map((item, i) => (
+    <motion.li
+      key={i}
+      variants={{
+        hidden: { opacity: 0, x: -20 },
+        visible: { opacity: 1, x: 0 },
+      }}
+    >
+      {item}
+    </motion.li>
+  ))}
+</motion.ul>`,
+
+  dragAnimation: `import { motion } from "framer-motion"
+
+<motion.div
+  drag
+  dragConstraints={{
+    top: -100,
+    left: -100,
+    right: 100,
+    bottom: 100,
+  }}
+  dragElastic={0.2}
+  whileDrag={{ scale: 1.1 }}
+>
+  Drag me!
+</motion.div>`,
+
+  layoutAnimation: `import { motion, AnimatePresence } from "framer-motion"
+
+const [selectedId, setSelectedId] = useState(null)
+
+<div className="grid grid-cols-3 gap-2">
+  {items.map((id) => (
+    <motion.div
+      key={id}
+      layoutId={id}
+      onClick={() => setSelectedId(id)}
+    >
+      {id}
+    </motion.div>
+  ))}
+</div>
+
+<AnimatePresence>
+  {selectedId && (
+    <motion.div
+      layoutId={selectedId}
+      className="fixed inset-0"
+      onClick={() => setSelectedId(null)}
+    >
+      Expanded view
+    </motion.div>
+  )}
+</AnimatePresence>`,
+
+  pathAnimation: `import { motion } from "framer-motion"
+
+<svg width="200" height="200" viewBox="0 0 200 200">
+  <motion.path
+    d="M 10 100 Q 100 10 190 100 T 190 100"
+    stroke="#3b82f6"
+    strokeWidth="3"
+    fill="none"
+    initial={{ pathLength: 0 }}
+    animate={{ pathLength: 1 }}
+    transition={{
+      duration: 2,
+      repeat: Infinity,
+      repeatType: "reverse",
+      ease: "easeInOut",
+    }}
+  />
+</svg>`,
+
+  gestureAnimation: `import { motion } from "framer-motion"
+
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  onHoverStart={() => console.log("Hover started")}
+  onHoverEnd={() => console.log("Hover ended")}
+  onTap={() => console.log("Tapped!")}
+>
+  Interactive Button
+</motion.button>`,
+
+  scrollAnimation: `import { motion } from "framer-motion"
+
+<motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ 
+    once: false,  // Animate every time it comes into view
+    amount: 0.5   // Trigger when 50% visible
+  }}
+  transition={{ duration: 0.6 }}
+>
+  Scroll-triggered content
+</motion.div>`,
+};
+
 export default function ComponentsTestPage() {
   const [switchChecked, setSwitchChecked] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -166,14 +560,7 @@ export default function ComponentsTestPage() {
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-
-<Avatar>
-  <AvatarImage src="https://github.com/shadcn.png" />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>`}
-                    />
+                    <CodeBlock code={codeExamples.avatar} />
                   </div>
                 </CardContent>
               </Card>
@@ -195,14 +582,7 @@ export default function ComponentsTestPage() {
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Badge } from "@/components/ui/badge"
-
-<Badge>Default</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="outline">Outline</Badge>
-<Badge variant="destructive">Destructive</Badge>`}
-                    />
+                    <CodeBlock code={codeExamples.badge} />
                   </div>
                 </CardContent>
               </Card>
@@ -243,22 +623,7 @@ export default function ComponentsTestPage() {
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-
-<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-    <CardDescription>Card Description</CardDescription>
-  </CardHeader>
-  <CardContent>
-    <p>Card Content</p>
-  </CardContent>
-  <CardFooter>
-    <p>Card Footer</p>
-  </CardFooter>
-</Card>`}
-                    />
+                    <CodeBlock code={codeExamples.card} />
                   </div>
                 </CardContent>
               </Card>
@@ -279,13 +644,7 @@ export default function ComponentsTestPage() {
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Skeleton } from "@/components/ui/skeleton"
-
-<Skeleton className="h-4 w-[250px]" />
-<Skeleton className="h-4 w-[200px]" />
-<Skeleton className="h-4 w-[150px]" />`}
-                    />
+                    <CodeBlock code={codeExamples.skeleton} />
                   </div>
                 </CardContent>
               </Card>
@@ -320,23 +679,7 @@ export default function ComponentsTestPage() {
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-
-<Alert>
-  <AlertTitle>Heads up!</AlertTitle>
-  <AlertDescription>
-    You can add components to your app using the cli.
-  </AlertDescription>
-</Alert>
-
-<Alert variant="destructive">
-  <AlertTitle>Error</AlertTitle>
-  <AlertDescription>
-    Your session has expired. Please log in again.
-  </AlertDescription>
-</Alert>`}
-                    />
+                    <CodeBlock code={codeExamples.alert} />
                   </div>
                 </CardContent>
               </Card>
@@ -364,11 +707,7 @@ export default function ComponentsTestPage() {
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Progress } from "@/components/ui/progress"
-
-<Progress value={33} className="w-[60%]" />`}
-                    />
+                    <CodeBlock code={codeExamples.progress} />
                   </div>
                 </CardContent>
               </Card>
@@ -392,16 +731,7 @@ export default function ComponentsTestPage() {
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { toast } from "@/hooks/use-toast"
-
-toast({
-  title: "Scheduled: Catch up",
-  description: "Friday, February 10, 2023 at 5:57 PM",
-})
-
-// Don't forget to add <Toaster /> to your root layout`}
-                    />
+                    <CodeBlock code={codeExamples.toast} />
                   </div>
                 </CardContent>
               </Card>
@@ -431,24 +761,7 @@ toast({
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Button } from "@/components/ui/button"
-
-// Variants
-<Button>Default</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="destructive">Destructive</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="link">Link</Button>
-
-// Sizes
-<Button size="sm">Small</Button>
-<Button size="lg">Large</Button>
-
-// States
-<Button disabled>Disabled</Button>`}
-                    />
+                    <CodeBlock code={codeExamples.button} />
                   </div>
                 </CardContent>
               </Card>
@@ -472,20 +785,7 @@ toast({
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-
-// With Label
-<div className="space-y-2">
-  <Label htmlFor="email">Email</Label>
-  <Input type="email" id="email" placeholder="Email" />
-</div>
-
-// Different types
-<Input type="password" placeholder="Password" />
-<Input disabled placeholder="Disabled input" />`}
-                    />
+                    <CodeBlock code={codeExamples.input} />
                   </div>
                 </CardContent>
               </Card>
@@ -509,17 +809,7 @@ import { Label } from "@/components/ui/label"
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Checkbox } from "@/components/ui/checkbox"
-
-const [checked, setChecked] = useState(false)
-
-<Checkbox
-  id="terms"
-  checked={checked}
-  onCheckedChange={(value) => setChecked(value === true)}
-/>`}
-                    />
+                    <CodeBlock code={codeExamples.checkbox} />
                   </div>
                 </CardContent>
               </Card>
@@ -541,17 +831,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Switch } from "@/components/ui/switch"
-
-const [checked, setChecked] = useState(false)
-
-<Switch
-  id="airplane-mode"
-  checked={checked}
-  onCheckedChange={setChecked}
-/>`}
-                    />
+                    <CodeBlock code={codeExamples.switch} />
                   </div>
                 </CardContent>
               </Card>
@@ -577,20 +857,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-
-<Select>
-  <SelectTrigger className="w-[180px]">
-    <SelectValue placeholder="Select a fruit" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="apple">Apple</SelectItem>
-    <SelectItem value="banana">Banana</SelectItem>
-    <SelectItem value="orange">Orange</SelectItem>
-  </SelectContent>
-</Select>`}
-                    />
+                    <CodeBlock code={codeExamples.select} />
                   </div>
                 </CardContent>
               </Card>
@@ -608,14 +875,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Textarea } from "@/components/ui/textarea"
-
-<Textarea
-  placeholder="Type your message here."
-  className="max-w-sm"
-/>`}
-                    />
+                    <CodeBlock code={codeExamples.textarea} />
                   </div>
                 </CardContent>
               </Card>
@@ -647,22 +907,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-
-<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="outline">Open Menu</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuItem>Team</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>`}
-                    />
+                    <CodeBlock code={codeExamples.dropdown} />
                   </div>
                 </CardContent>
               </Card>
@@ -690,22 +935,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-
-<Tabs defaultValue="account" className="w-[400px]">
-  <TabsList>
-    <TabsTrigger value="account">Account</TabsTrigger>
-    <TabsTrigger value="password">Password</TabsTrigger>
-  </TabsList>
-  <TabsContent value="account">
-    <p>Make changes to your account here.</p>
-  </TabsContent>
-  <TabsContent value="password">
-    <p>Change your password here.</p>
-  </TabsContent>
-</Tabs>`}
-                    />
+                    <CodeBlock code={codeExamples.tabs} />
                   </div>
                 </CardContent>
               </Card>
@@ -752,26 +982,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-
-<Dialog>
-  <DialogTrigger asChild>
-    <Button variant="outline">Open Dialog</Button>
-  </DialogTrigger>
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Dialog Title</DialogTitle>
-      <DialogDescription>
-        Dialog description goes here.
-      </DialogDescription>
-    </DialogHeader>
-    <div>
-      Your content here
-        </div>
-  </DialogContent>
-</Dialog>`}
-                    />
+                    <CodeBlock code={codeExamples.dialog} />
                   </div>
                 </CardContent>
               </Card>
@@ -807,27 +1018,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
-
-<AlertDialog>
-  <AlertDialogTrigger asChild>
-    <Button variant="outline">Show Alert Dialog</Button>
-  </AlertDialogTrigger>
-  <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-      <AlertDialogDescription>
-        This action cannot be undone.
-      </AlertDialogDescription>
-    </AlertDialogHeader>
-    <AlertDialogFooter>
-      <AlertDialogCancel>Cancel</AlertDialogCancel>
-      <AlertDialogAction>Continue</AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog>`}
-                    />
+                    <CodeBlock code={codeExamples.alertDialog} />
                   </div>
                 </CardContent>
               </Card>
@@ -860,25 +1051,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-
-<Popover>
-  <PopoverTrigger asChild>
-    <Button variant="outline">Open popover</Button>
-  </PopoverTrigger>
-  <PopoverContent className="w-80">
-    <div className="grid gap-4">
-      <div className="space-y-2">
-        <h4 className="font-medium leading-none">Title</h4>
-        <p className="text-sm text-muted-foreground">
-          Content goes here.
-        </p>
-      </div>
-    </div>
-  </PopoverContent>
-</Popover>`}
-                    />
+                    <CodeBlock code={codeExamples.popover} />
                   </div>
                 </CardContent>
               </Card>
@@ -914,24 +1087,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-
-<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Is it accessible?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It adheres to the WAI-ARIA design pattern.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionTrigger>Is it styled?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It comes with default styles.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>`}
-                    />
+                    <CodeBlock code={codeExamples.accordion} />
                   </div>
                 </CardContent>
               </Card>
@@ -965,18 +1121,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { Separator } from "@/components/ui/separator"
-
-// Horizontal separator
-<Separator />
-
-// Vertical separator
-<Separator orientation="vertical" />
-
-// With custom spacing
-<Separator className="my-4" />`}
-                    />
+                    <CodeBlock code={codeExamples.separator} />
                   </div>
                 </CardContent>
               </Card>
@@ -1019,21 +1164,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion, AnimatePresence } from "framer-motion"
-
-<AnimatePresence>
-  {isVisible && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      Your content here
-    </motion.div>
-  )}
-</AnimatePresence>`}
-                    />
+                    <CodeBlock code={codeExamples.fadeAnimation} />
                   </div>
                 </CardContent>
               </Card>
@@ -1055,21 +1186,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion } from "framer-motion"
-
-<motion.div
-  whileHover={{ scale: 1.2, rotate: 180 }}
-  whileTap={{ scale: 0.9 }}
-  transition={{ 
-    type: "spring", 
-    stiffness: 260, 
-    damping: 20 
-  }}
->
-  Hover me!
-</motion.div>`}
-                    />
+                    <CodeBlock code={codeExamples.scaleRotateAnimation} />
                   </div>
                 </CardContent>
               </Card>
@@ -1116,33 +1233,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion } from "framer-motion"
-
-<motion.ul
-  initial="hidden"
-  animate="visible"
-  variants={{
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }}
->
-  {items.map((item, i) => (
-    <motion.li
-      key={i}
-      variants={{
-        hidden: { opacity: 0, x: -20 },
-        visible: { opacity: 1, x: 0 },
-      }}
-    >
-      {item}
-    </motion.li>
-  ))}
-</motion.ul>`}
-                    />
+                    <CodeBlock code={codeExamples.staggerAnimation} />
                   </div>
                 </CardContent>
               </Card>
@@ -1172,23 +1263,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion } from "framer-motion"
-
-<motion.div
-  drag
-  dragConstraints={{
-    top: -100,
-    left: -100,
-    right: 100,
-    bottom: 100,
-  }}
-  dragElastic={0.2}
-  whileDrag={{ scale: 1.1 }}
->
-  Drag me!
-</motion.div>`}
-                    />
+                    <CodeBlock code={codeExamples.dragAnimation} />
                   </div>
                 </CardContent>
               </Card>
@@ -1232,35 +1307,7 @@ const [checked, setChecked] = useState(false)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion, AnimatePresence } from "framer-motion"
-
-const [selectedId, setSelectedId] = useState(null)
-
-<div className="grid grid-cols-3 gap-2">
-  {items.map((id) => (
-    <motion.div
-      key={id}
-      layoutId={id}
-      onClick={() => setSelectedId(id)}
-    >
-      {id}
-    </motion.div>
-  ))}
-</div>
-
-<AnimatePresence>
-  {selectedId && (
-    <motion.div
-      layoutId={selectedId}
-      className="fixed inset-0"
-      onClick={() => setSelectedId(null)}
-    >
-      Expanded view
-    </motion.div>
-  )}
-</AnimatePresence>`}
-                    />
+                    <CodeBlock code={codeExamples.layoutAnimation} />
                   </div>
                 </CardContent>
               </Card>
@@ -1295,26 +1342,7 @@ const [selectedId, setSelectedId] = useState(null)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion } from "framer-motion"
-
-<svg width="200" height="200" viewBox="0 0 200 200">
-  <motion.path
-    d="M 10 100 Q 100 10 190 100 T 190 100"
-    stroke="#3b82f6"
-    strokeWidth="3"
-    fill="none"
-    initial={{ pathLength: 0 }}
-    animate={{ pathLength: 1 }}
-    transition={{
-      duration: 2,
-      repeat: Infinity,
-      repeatType: "reverse",
-      ease: "easeInOut",
-    }}
-  />
-</svg>`}
-                    />
+                    <CodeBlock code={codeExamples.pathAnimation} />
                   </div>
                 </CardContent>
               </Card>
@@ -1339,19 +1367,7 @@ const [selectedId, setSelectedId] = useState(null)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion } from "framer-motion"
-
-<motion.button
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  onHoverStart={() => console.log("Hover started")}
-  onHoverEnd={() => console.log("Hover ended")}
-  onTap={() => console.log("Tapped!")}
->
-  Interactive Button
-</motion.button>`}
-                    />
+                    <CodeBlock code={codeExamples.gestureAnimation} />
                   </div>
                 </CardContent>
               </Card>
@@ -1378,21 +1394,7 @@ const [selectedId, setSelectedId] = useState(null)
                   <Separator />
                   <div>
                     <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock
-                      code={`import { motion } from "framer-motion"
-
-<motion.div
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ 
-    once: false,  // Animate every time it comes into view
-    amount: 0.5   // Trigger when 50% visible
-  }}
-  transition={{ duration: 0.6 }}
->
-  Scroll-triggered content
-</motion.div>`}
-                    />
+                    <CodeBlock code={codeExamples.scrollAnimation} />
                   </div>
                 </CardContent>
               </Card>
