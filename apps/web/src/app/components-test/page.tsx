@@ -175,7 +175,7 @@ import { Label } from "@/components/ui/label"
 <div className="space-y-2">
   <Label htmlFor="email">Email</Label>
   <Input type="email" id="email" placeholder="Email" />
-        </div>
+</div>
 
 // Different types
 <Input type="password" placeholder="Password" />
@@ -272,22 +272,22 @@ const [checked, setChecked] = useState(false)
 
   alertDialog: `import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button variant="outline">Show Alert Dialog</Button>
-          </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-              <AlertDialogDescription>
-        This action cannot be undone.
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction>Continue</AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
+<AlertDialog>
+    <AlertDialogTrigger asChild>
+        <Button variant="outline">Show Alert Dialog</Button>
+    </AlertDialogTrigger>
+    <AlertDialogContent>
+        <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+                This action cannot be undone.
+            </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Continue</AlertDialogAction>
+        </AlertDialogFooter>
+    </AlertDialogContent>
 </AlertDialog>`,
 
   popover: `import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
@@ -486,6 +486,11 @@ export default function ComponentsTestPage() {
   const [progress, setProgress] = useState(33);
   const [isVisible, setIsVisible] = useState(true);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showCode, setShowCode] = useState<{ [key: string]: boolean }>({});
+
+  const toggleCode = (componentName: string) => {
+    setShowCode((prev) => ({ ...prev, [componentName]: !prev[componentName] }));
+  };
 
   return (
     <div className="min-h-screen bg-gray-50/50">
@@ -559,8 +564,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.avatar} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("avatar")}
+                      className="mb-2"
+                    >
+                      {showCode.avatar ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.avatar && (
+                      <CodeBlock code={codeExamples.avatar} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -581,8 +595,15 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.badge} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("badge")}
+                      className="mb-2"
+                    >
+                      {showCode.badge ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.badge && <CodeBlock code={codeExamples.badge} />}
                   </div>
                 </CardContent>
               </Card>
@@ -622,8 +643,15 @@ export default function ComponentsTestPage() {
                   </Card>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.card} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("card")}
+                      className="mb-2"
+                    >
+                      {showCode.card ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.card && <CodeBlock code={codeExamples.card} />}
                   </div>
                 </CardContent>
               </Card>
@@ -643,8 +671,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.skeleton} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("skeleton")}
+                      className="mb-2"
+                    >
+                      {showCode.skeleton ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.skeleton && (
+                      <CodeBlock code={codeExamples.skeleton} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -678,8 +715,15 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.alert} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("alert")}
+                      className="mb-2"
+                    >
+                      {showCode.alert ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.alert && <CodeBlock code={codeExamples.alert} />}
                   </div>
                 </CardContent>
               </Card>
@@ -706,8 +750,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.progress} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("progress")}
+                      className="mb-2"
+                    >
+                      {showCode.progress ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.progress && (
+                      <CodeBlock code={codeExamples.progress} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -730,8 +783,15 @@ export default function ComponentsTestPage() {
                   </Button>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.toast} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("toast")}
+                      className="mb-2"
+                    >
+                      {showCode.toast ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.toast && <CodeBlock code={codeExamples.toast} />}
                   </div>
                 </CardContent>
               </Card>
@@ -760,8 +820,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.button} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("button")}
+                      className="mb-2"
+                    >
+                      {showCode.button ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.button && (
+                      <CodeBlock code={codeExamples.button} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -784,8 +853,15 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.input} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("input")}
+                      className="mb-2"
+                    >
+                      {showCode.input ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.input && <CodeBlock code={codeExamples.input} />}
                   </div>
                 </CardContent>
               </Card>
@@ -808,8 +884,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.checkbox} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("checkbox")}
+                      className="mb-2"
+                    >
+                      {showCode.checkbox ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.checkbox && (
+                      <CodeBlock code={codeExamples.checkbox} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -830,8 +915,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.switch} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("switch")}
+                      className="mb-2"
+                    >
+                      {showCode.switch ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.switch && (
+                      <CodeBlock code={codeExamples.switch} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -856,8 +950,17 @@ export default function ComponentsTestPage() {
                   </Select>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.select} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("select")}
+                      className="mb-2"
+                    >
+                      {showCode.select ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.select && (
+                      <CodeBlock code={codeExamples.select} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -874,8 +977,17 @@ export default function ComponentsTestPage() {
                   />
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.textarea} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("textarea")}
+                      className="mb-2"
+                    >
+                      {showCode.textarea ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.textarea && (
+                      <CodeBlock code={codeExamples.textarea} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -906,8 +1018,17 @@ export default function ComponentsTestPage() {
                   </DropdownMenu>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.dropdown} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("dropdown")}
+                      className="mb-2"
+                    >
+                      {showCode.dropdown ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.dropdown && (
+                      <CodeBlock code={codeExamples.dropdown} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -934,8 +1055,15 @@ export default function ComponentsTestPage() {
                   </Tabs>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.tabs} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("tabs")}
+                      className="mb-2"
+                    >
+                      {showCode.tabs ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.tabs && <CodeBlock code={codeExamples.tabs} />}
                   </div>
                 </CardContent>
               </Card>
@@ -981,8 +1109,17 @@ export default function ComponentsTestPage() {
                   </Dialog>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.dialog} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("dialog")}
+                      className="mb-2"
+                    >
+                      {showCode.dialog ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.dialog && (
+                      <CodeBlock code={codeExamples.dialog} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1017,8 +1154,17 @@ export default function ComponentsTestPage() {
                   </AlertDialog>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.alertDialog} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("alertDialog")}
+                      className="mb-2"
+                    >
+                      {showCode.alertDialog ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.alertDialog && (
+                      <CodeBlock code={codeExamples.alertDialog} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1050,8 +1196,17 @@ export default function ComponentsTestPage() {
                   </Popover>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.popover} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("popover")}
+                      className="mb-2"
+                    >
+                      {showCode.popover ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.popover && (
+                      <CodeBlock code={codeExamples.popover} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1086,8 +1241,17 @@ export default function ComponentsTestPage() {
                   </Accordion>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.accordion} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("accordion")}
+                      className="mb-2"
+                    >
+                      {showCode.accordion ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.accordion && (
+                      <CodeBlock code={codeExamples.accordion} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1120,8 +1284,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.separator} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("separator")}
+                      className="mb-2"
+                    >
+                      {showCode.separator ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.separator && (
+                      <CodeBlock code={codeExamples.separator} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1163,8 +1336,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.fadeAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("fadeAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.fadeAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.fadeAnimation && (
+                      <CodeBlock code={codeExamples.fadeAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1185,8 +1367,17 @@ export default function ComponentsTestPage() {
                   />
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.scaleRotateAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("scaleRotateAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.scaleRotateAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.scaleRotateAnimation && (
+                      <CodeBlock code={codeExamples.scaleRotateAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1232,8 +1423,17 @@ export default function ComponentsTestPage() {
                   </motion.ul>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.staggerAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("staggerAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.staggerAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.staggerAnimation && (
+                      <CodeBlock code={codeExamples.staggerAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1262,8 +1462,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.dragAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("dragAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.dragAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.dragAnimation && (
+                      <CodeBlock code={codeExamples.dragAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1306,8 +1515,17 @@ export default function ComponentsTestPage() {
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.layoutAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("layoutAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.layoutAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.layoutAnimation && (
+                      <CodeBlock code={codeExamples.layoutAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1341,8 +1559,17 @@ export default function ComponentsTestPage() {
                   </svg>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.pathAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("pathAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.pathAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.pathAnimation && (
+                      <CodeBlock code={codeExamples.pathAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1366,8 +1593,17 @@ export default function ComponentsTestPage() {
                   </motion.button>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.gestureAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("gestureAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.gestureAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.gestureAnimation && (
+                      <CodeBlock code={codeExamples.gestureAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -1393,8 +1629,17 @@ export default function ComponentsTestPage() {
                   </motion.div>
                   <Separator />
                   <div>
-                    <h4 className="text-sm font-medium mb-2">Usage:</h4>
-                    <CodeBlock code={codeExamples.scrollAnimation} />
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => toggleCode("scrollAnimation")}
+                      className="mb-2"
+                    >
+                      {showCode.scrollAnimation ? "Hide" : "Show"} Code
+                    </Button>
+                    {showCode.scrollAnimation && (
+                      <CodeBlock code={codeExamples.scrollAnimation} />
+                    )}
                   </div>
                 </CardContent>
               </Card>
