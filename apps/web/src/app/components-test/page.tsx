@@ -71,8 +71,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const CodeBlock = ({ code }: { code: string }) => (
-  <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
-    <code className="text-sm">{code}</code>
+  <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+    <code className="text-sm whitespace-pre">{code}</code>
   </pre>
 );
 
