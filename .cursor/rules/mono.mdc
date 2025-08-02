@@ -76,7 +76,7 @@ This is a Turborepo monorepo with the following structure:
 
 - Authentication: Clerk middleware protects routes, use `auth()` in server components
 - Data fetching: Server components for initial data, TanStack Query for client-side
-- Forms: React Hook Form with Zod validation for job applications
+- Forms: React Hook Form with Zod validation
 - Styling: Tailwind utility classes, shadcn/ui components, avoid custom CSS
 - Database: Supabase client for CRUD operations, keep RLS in mind
 

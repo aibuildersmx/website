@@ -1,5 +1,5 @@
 {
-  "name": "@job-board/supabase",
+  "name": "@tutorial/supabase",
   "version": "0.1.0",
   "private": true,
   "scripts": {
