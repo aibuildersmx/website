@@ -4,31 +4,34 @@ A modern job board application built with TypeScript, Next.js, and Supabase.
 
 ## Structure
 
-- `apps/web` - Next.js web application
+- `apps/web` - Next.js 15 web application with App Router
 - `apps/supabase` - Supabase local development and migrations
 
 ## Tech Stack
 
-- **Frontend**: Next.js 14, React, TypeScript
+- **Frontend**: Next.js 15, React, TypeScript
 - **Styling**: Tailwind CSS, shadcn/ui
 - **State Management**: Zustand
 - **Data Fetching**: TanStack Query
 - **Authentication**: Clerk
-- **Database**: Supabase
+- **Database**: Supabase (PostgreSQL)
 - **Build System**: Turborepo, pnpm
 
 ## Getting Started
 
 1. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Set up environment variables:
-   - Copy `apps/web/.env.example` to `apps/web/.env.local`
+
+   - Copy `apps/web/.env.local.example` to `apps/web/.env.local`
    - Add your Clerk and Supabase credentials
 
 3. Start development:
+
 ```bash
 pnpm dev
 ```
