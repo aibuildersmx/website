@@ -1,4 +1,4 @@
-# Job Board Monorepo
+# Tutorial
 
 A modern job board application built with TypeScript, Next.js, and Supabase.
 
