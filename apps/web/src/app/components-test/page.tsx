@@ -67,6 +67,7 @@ import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 const componentCategories = [
@@ -76,46 +77,67 @@ const componentCategories = [
   { name: "Navigation", id: "navigation" },
   { name: "Overlays", id: "overlays" },
   { name: "Layout", id: "layout" },
+  { name: "Animations", id: "animations" },
 ];
 
 export default function ComponentsTestPage() {
   const [switchChecked, setSwitchChecked] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const [progress, setProgress] = useState(33);
+  const [isVisible, setIsVisible] = useState(true);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen bg-gray-50/50">
       <div className="container mx-auto p-8">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">UI Components Library</h1>
+          <h1 className="text-4xl font-bold mb-4">
+            UI Components & Animation Library
+          </h1>
           <p className="text-muted-foreground text-lg">
-            A comprehensive showcase of all available UI components
+            A comprehensive showcase of UI components and Framer Motion
+            animations
           </p>
         </header>
 
         <nav className="mb-12 sticky top-4 z-10 bg-white rounded-lg shadow-lg border border-gray-200 p-4 backdrop-blur-sm bg-white/95">
           <div className="flex flex-wrap gap-2">
             {componentCategories.map((category) => (
-              <Button
+              <motion.div
                 key={category.id}
-                variant="ghost"
-                size="sm"
-                className="hover:bg-gray-100"
-                onClick={() => {
-                  document.getElementById(category.id)?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }}
+                animate={
+                  category.id === "animations"
+                    ? {
+                        rotate: [0, -5, 5, -5, 5, 0],
+                        transition: {
+                          duration: 0.5,
+                          repeat: Infinity,
+                          repeatDelay: 3,
+                        },
+                      }
+                    : {}
+                }
               >
-                {category.name}
-              </Button>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="shadow-sm hover:shadow-md transition-shadow"
+                  onClick={() => {
+                    document.getElementById(category.id)?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
+                >
+                  {category.name}
+                </Button>
+              </motion.div>
             ))}
           </div>
         </nav>
 
         <div className="space-y-16">
-          <section id="display">
+          <section id="display" className="scroll-mt-24">
             <h2 className="text-3xl font-bold mb-8">Display Components</h2>
             <div className="grid gap-8">
               <Card>
@@ -209,7 +231,7 @@ export default function ComponentsTestPage() {
             </div>
           </section>
 
-          <section id="feedback">
+          <section id="feedback" className="scroll-mt-24">
             <h2 className="text-3xl font-bold mb-8">Feedback Components</h2>
             <div className="grid gap-8">
               <Card>
@@ -277,7 +299,7 @@ export default function ComponentsTestPage() {
             </div>
           </section>
 
-          <section id="forms">
+          <section id="forms" className="scroll-mt-24">
             <h2 className="text-3xl font-bold mb-8">Form Components</h2>
             <div className="grid gap-8">
               <Card>
@@ -391,7 +413,7 @@ export default function ComponentsTestPage() {
             </div>
           </section>
 
-          <section id="navigation">
+          <section id="navigation" className="scroll-mt-24">
             <h2 className="text-3xl font-bold mb-8">Navigation Components</h2>
             <div className="grid gap-8">
               <Card>
@@ -441,7 +463,7 @@ export default function ComponentsTestPage() {
             </div>
           </section>
 
-          <section id="overlays">
+          <section id="overlays" className="scroll-mt-24">
             <h2 className="text-3xl font-bold mb-8">Overlay Components</h2>
             <div className="grid gap-8">
               <Card>
@@ -542,7 +564,7 @@ export default function ComponentsTestPage() {
             </div>
           </section>
 
-          <section id="layout">
+          <section id="layout" className="scroll-mt-24">
             <h2 className="text-3xl font-bold mb-8">Layout Components</h2>
             <div className="grid gap-8">
               <Card>
@@ -597,6 +619,235 @@ export default function ComponentsTestPage() {
                       <div>Source</div>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          <section id="animations" className="scroll-mt-24">
+            <h2 className="text-3xl font-bold mb-8">
+              Framer Motion Animations
+            </h2>
+            <div className="grid gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Fade In/Out Animation</CardTitle>
+                  <CardDescription>
+                    Simple opacity transitions with AnimatePresence
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button
+                    onClick={() => setIsVisible(!isVisible)}
+                    className="mb-4"
+                  >
+                    Toggle Visibility
+                  </Button>
+                  <AnimatePresence>
+                    {isVisible && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="p-4 bg-blue-100 rounded-lg"
+                      >
+                        <p>This content fades in and out smoothly</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Scale & Rotate Animation</CardTitle>
+                  <CardDescription>
+                    Hover to see scale and rotation effects
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <motion.div
+                    className="w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg mx-auto"
+                    whileHover={{ scale: 1.2, rotate: 180 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                  />
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Stagger Children Animation</CardTitle>
+                  <CardDescription>
+                    Sequential animations for list items
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <motion.ul
+                    className="space-y-2"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.3 }}
+                    variants={{
+                      visible: {
+                        transition: {
+                          staggerChildren: 0.1,
+                        },
+                      },
+                    }}
+                  >
+                    {[
+                      "First item",
+                      "Second item",
+                      "Third item",
+                      "Fourth item",
+                    ].map((item, i) => (
+                      <motion.li
+                        key={i}
+                        className="p-3 bg-gray-100 rounded"
+                        variants={{
+                          hidden: { opacity: 0, x: -20 },
+                          visible: { opacity: 1, x: 0 },
+                        }}
+                      >
+                        {item}
+                      </motion.li>
+                    ))}
+                  </motion.ul>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Drag Animation</CardTitle>
+                  <CardDescription>
+                    Drag the box around with constraints
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="relative h-64 bg-gray-50 rounded-lg overflow-hidden">
+                    <motion.div
+                      className="w-20 h-20 bg-green-500 rounded-lg cursor-move absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      drag
+                      dragConstraints={{
+                        top: -100,
+                        left: -100,
+                        right: 100,
+                        bottom: 100,
+                      }}
+                      dragElastic={0.2}
+                      whileDrag={{ scale: 1.1 }}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Layout Animation</CardTitle>
+                  <CardDescription>
+                    Click items to see smooth layout transitions
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-3 gap-2">
+                    {["1", "2", "3", "4", "5", "6"].map((id) => (
+                      <motion.div
+                        key={id}
+                        layoutId={id}
+                        onClick={() => setSelectedId(id)}
+                        className="p-8 bg-orange-400 rounded cursor-pointer text-white font-bold text-center"
+                        whileHover={{ scale: 0.95 }}
+                      >
+                        {id}
+                      </motion.div>
+                    ))}
+                  </div>
+                  <AnimatePresence>
+                    {selectedId && (
+                      <motion.div
+                        layoutId={selectedId}
+                        className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+                        onClick={() => setSelectedId(null)}
+                      >
+                        <motion.div className="bg-orange-400 p-20 rounded-lg text-white text-4xl font-bold">
+                          {selectedId}
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Path Animation</CardTitle>
+                  <CardDescription>SVG path drawing animation</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <svg
+                    width="200"
+                    height="200"
+                    viewBox="0 0 200 200"
+                    className="mx-auto"
+                  >
+                    <motion.path
+                      d="M 10 100 Q 100 10 190 100 T 190 100"
+                      stroke="#3b82f6"
+                      strokeWidth="3"
+                      fill="none"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                      }}
+                    />
+                  </svg>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Gesture-Based Animation</CardTitle>
+                  <CardDescription>
+                    Different animations based on user gestures
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <motion.button
+                    className="px-6 py-3 bg-indigo-500 text-white rounded-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onHoverStart={() => console.log("Hover started")}
+                    onHoverEnd={() => console.log("Hover ended")}
+                  >
+                    Hover and Click Me
+                  </motion.button>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Scroll-Triggered Animation</CardTitle>
+                  <CardDescription>
+                    Animation that triggers when scrolling into view
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <motion.div
+                    className="p-8 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white text-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.5 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <p className="text-lg font-semibold">
+                      I animate when you scroll to me!
+                    </p>
+                  </motion.div>
                 </CardContent>
               </Card>
             </div>
