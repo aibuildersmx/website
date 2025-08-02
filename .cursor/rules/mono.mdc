@@ -8,9 +8,9 @@ alwaysApply: true
 
 This is a Turborepo monorepo with the following structure:
 
-- `/apps/web` - Next.js 15 app with App Router
-- `/apps/supabase` - Supabase backend with migrations
-- Root workspace managed by pnpm
+- `/apps/web` - Next.js 15 frontend with App Router
+- `/apps/supabase` - Supabase backend with database migrations
+- Root workspace managed by pnpm workspaces
 
 # Tech Stack
 
@@ -74,10 +74,11 @@ This is a Turborepo monorepo with the following structure:
 
 ## Common Patterns
 
-- Authentication: Use Clerk Auth with Next.js middleware
-- Data fetching: Server components for initial data, SWR/React Query for client
-- Forms: React Hook Form with Zod validation
-- Styling: Tailwind utility classes, avoid custom CSS
+- Authentication: Clerk middleware protects routes, use `auth()` in server components
+- Data fetching: Server components for initial data, TanStack Query for client-side
+- Forms: React Hook Form with Zod validation for job applications
+- Styling: Tailwind utility classes, shadcn/ui components, avoid custom CSS
+- Database: Supabase client for CRUD operations, keep RLS in mind
 
 ## Testing
 
@@ -91,3 +92,4 @@ This is a Turborepo monorepo with the following structure:
 - Use dynamic imports for heavy components
 - Implement proper caching strategies
 - Optimize images and fonts
+- Use Suspense boundaries for async components

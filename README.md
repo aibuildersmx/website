@@ -1,6 +1,6 @@
 # Tutorial
 
-A modern fullstack web application built with TypeScript, Next.js, and Supabase.
+A modern fullstack web application built with Next.js 15, Supabase, and Clerk authentication.
 
 ## Structure
 
@@ -9,36 +9,82 @@ A modern fullstack web application built with TypeScript, Next.js, and Supabase.
 
 ## Tech Stack
 
-- **Frontend**: Next.js 15, React, TypeScript
-- **Styling**: Tailwind CSS, shadcn/ui
+- **Framework**: Next.js 15 (App Router), React, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui components
 - **State Management**: Zustand
-- **Data Fetching**: TanStack Query
-- **Authentication**: Clerk
+- **Authentication**: Clerk (user management & auth)
 - **Database**: Supabase (PostgreSQL)
-- **Build System**: Turborepo, pnpm
+- **Build System**: Turborepo monorepo, pnpm workspaces
+- **Deployment**: Vercel (recommended)
 
 ## Getting Started
 
 1. Install dependencies:
 
-```bash
-pnpm install
-```
+   ```bash
+   pnpm install
+   ```
 
 2. Set up environment variables:
 
-   - Copy `apps/web/.env.local.example` to `apps/web/.env.local`
-   - Add your Clerk and Supabase credentials
+   - Copy `.env.example` to `.env.local` in `apps/web/`
+   - Add your Clerk keys (publishable & secret)
+   - Add your Supabase URL and anon key
 
-3. Start development:
+3. Start the database:
 
-```bash
-pnpm dev
-```
+   ```bash
+   pnpm db:start  # Start local Supabase
+   pnpm db:push   # Apply migrations
+   ```
+
+4. Start development:
+   ```bash
+   pnpm dev  # Runs all apps
+   ```
 
 ## Commands
 
-- `pnpm dev` - Start all apps in development mode
-- `pnpm build` - Build all apps
-- `pnpm lint` - Lint all apps
-- `pnpm type-check` - Type check all apps
+### Development
+
+- `pnpm dev` - Start all apps in development
+- `pnpm dev:web` - Start only the web app
+- `pnpm dev:db` - Start only Supabase
+
+### Build & Deploy
+
+- `pnpm build` - Build all apps for production
+- `pnpm lint` - Run ESLint across the monorepo
+- `pnpm type-check` - TypeScript type checking
+
+### Database
+
+- `pnpm db:start` - Start local Supabase
+- `pnpm db:stop` - Stop local Supabase
+- `pnpm db:reset` - Reset database to initial state
+- `pnpm db:push` - Apply pending migrations
+
+### Package Management
+
+- `pnpm --filter web add <package>` - Add dependency to web app
+- `pnpm --filter supabase add <package>` - Add dependency to supabase app
+
+## Project Structure
+
+```
+tutorial/
+├── apps/
+│   ├── web/                 # Next.js application
+│   │   ├── src/
+│   │   │   ├── app/         # App router pages & API routes
+│   │   │   ├── components/  # React components
+│   │   │   ├── lib/         # Utilities & configs
+│   │   │   └── store/       # Zustand state management
+│   │   └── public/          # Static assets
+│   └── supabase/            # Database & backend
+│       └── supabase/
+│           └── migrations/  # SQL migrations
+├── package.json             # Root package.json
+├── pnpm-workspace.yaml      # pnpm workspace config
+└── turbo.json               # Turborepo config
+```
