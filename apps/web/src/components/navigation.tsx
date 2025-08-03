@@ -18,6 +18,10 @@ export function Navigation() {
       label: "Getting Started",
     },
     {
+      href: "/examples",
+      label: "Examples",
+    },
+    {
       href: "/design-library",
       label: "Design Library",
     },
