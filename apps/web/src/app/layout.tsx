@@ -24,7 +24,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <Providers>
             <Navigation />
-            <main className="flex-1 pt-14 h-full">{children}</main>
+            <main className="flex-1 pt-14">{children}</main>
           </Providers>
           <Toaster />
         </body>
