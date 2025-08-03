@@ -59,7 +59,7 @@ export default function Home() {
         </div>
         <div className="mt-24 mb-8 text-center">
           <p className="text-sm text-muted-foreground">
-            ⚡ entire site vibe coded using Cursor
+            ⚡ entire site and repository vibe coded using Cursor
           </p>
         </div>
       </div>
