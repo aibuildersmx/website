@@ -1,6 +1,15 @@
-# Tutorial
+# Tutorial - AI-First Development Starter
 
-A modern fullstack web application built with Next.js 15, Supabase, and Clerk authentication.
+A production-ready fullstack template optimized for AI-assisted development with Cursor. Features a modern tech stack, pre-configured authentication, and comprehensive component library.
+
+## 🚀 Features
+
+- **Production-Ready Setup**: Authentication, database, and design system pre-configured
+- **AI-Optimized**: Built specifically for development with Cursor AI
+- **Component Library**: Full shadcn/ui component showcase with interactive examples
+- **Dark Mode**: Built-in theme switching with system preference support
+- **Interactive Examples**: Working demos including games and creative tools
+- **Comprehensive Documentation**: Step-by-step setup guide and best practices
 
 ## Structure
 
@@ -77,7 +86,12 @@ tutorial/
 │   ├── web/                 # Next.js application
 │   │   ├── src/
 │   │   │   ├── app/         # App router pages & API routes
+│   │   │   │   ├── design-library/  # Component showcase
+│   │   │   │   ├── examples/        # Interactive demos
+│   │   │   │   └── getting-started/ # Setup guide
 │   │   │   ├── components/  # React components
+│   │   │   │   └── ui/      # shadcn/ui components
+│   │   │   ├── hooks/       # Custom React hooks
 │   │   │   ├── lib/         # Utilities & configs
 │   │   │   └── store/       # Zustand state management
 │   │   └── public/          # Static assets
@@ -88,3 +102,35 @@ tutorial/
 ├── pnpm-workspace.yaml      # pnpm workspace config
 └── turbo.json               # Turborepo config
 ```
+
+## Pages & Features
+
+### 🏠 Home Page
+
+- Modern landing page with gradient effects
+- Feature highlights and quick start guide
+- Links to documentation and component library
+
+### 📚 Getting Started (`/getting-started`)
+
+- Comprehensive setup guide with tabs for different setups
+- Environment variable configuration
+- Troubleshooting tips and FAQs
+- Prerequisites and system requirements
+
+### 🎨 Design Library (`/design-library`)
+
+- Complete shadcn/ui component showcase
+- Interactive component demos with code examples
+- Copy-to-clipboard functionality
+- Components include: Buttons, Cards, Forms, Dialogs, and more
+
+### 🎮 Examples (`/examples`)
+
+- Interactive demos showcasing real implementations:
+  - Memory Card Game
+  - Pomodoro Timer
+  - Color Palette Generator
+  - Drum Machine
+  - Drawing Canvas
+- Each example includes full source code
