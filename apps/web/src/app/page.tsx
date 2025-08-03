@@ -10,35 +10,39 @@ export default function Home() {
           <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary/20 to-primary/5 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-8 flex justify-center">
-              <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-muted-foreground ring-1 ring-border hover:ring-primary/20">
+            <div className="mb-6 sm:mb-8 flex justify-center">
+              <div className="relative rounded-full px-3 py-1 text-xs sm:text-sm leading-6 text-muted-foreground ring-1 ring-border hover:ring-primary/20">
                 Built with Next.js 15 + Supabase + Clerk + Cursor AI
               </div>
             </div>
 
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
               Get started and vibe code with AI
             </h1>
 
-            <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-xl mx-auto">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground max-w-xl mx-auto px-4 sm:px-0">
               Clone this production-ready template. Learn by exploring real
               code. Transform it into your own app with Cursor AI.
             </p>
 
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link href="/getting-started">
+            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-x-6 px-4 sm:px-0">
+              <Link href="/getting-started" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                  className="gap-2 shadow-lg hover:shadow-xl transition-shadow w-full sm:w-auto"
                 >
                   Get Started
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/design-library">
-                <Button size="lg" variant="ghost" className="gap-2">
+              <Link href="/design-library" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  variant="ghost"
+                  className="gap-2 w-full sm:w-auto"
+                >
                   View Components
                   <Sparkles className="h-4 w-4" />
                 </Button>
@@ -46,8 +50,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+          <div className="mx-auto mt-12 sm:mt-16 lg:mt-24 max-w-2xl lg:max-w-none px-4 sm:px-0">
+            <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 sm:gap-x-8 sm:gap-y-16 lg:max-w-none lg:grid-cols-3">
               <div className="flex flex-col items-center text-center">
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7">
                   <Code2 className="h-5 w-5 text-primary" />
@@ -89,12 +93,12 @@ export default function Home() {
             </dl>
           </div>
 
-          <div className="mx-auto mt-32 max-w-2xl">
-            <div className="rounded-2xl bg-card p-8 shadow-sm ring-1 ring-border">
-              <h2 className="text-2xl font-bold tracking-tight">
+          <div className="mx-auto mt-20 sm:mt-32 max-w-2xl px-4 sm:px-0">
+            <div className="rounded-2xl bg-card p-6 sm:p-8 shadow-sm ring-1 ring-border">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight">
                 Start in 3 steps
               </h2>
-              <ol className="mt-6 space-y-4 text-sm leading-6 text-muted-foreground">
+              <ol className="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm leading-6 text-muted-foreground">
                 <li className="flex gap-x-3">
                   <span className="font-mono text-primary">1.</span>
                   Clone the repository and install dependencies
@@ -119,16 +123,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mx-auto mt-16 max-w-2xl">
+          <div className="mx-auto mt-12 sm:mt-16 max-w-2xl px-4 sm:px-0">
             <div className="text-center">
               <Github className="mx-auto h-8 w-8 text-muted-foreground" />
-              <h2 className="mt-4 text-2xl font-bold tracking-tight">
+              <h2 className="mt-4 text-xl sm:text-2xl font-bold tracking-tight">
                 Open Source
               </h2>
-              <p className="mt-2 text-base text-muted-foreground">
+              <p className="mt-2 text-sm sm:text-base text-muted-foreground">
                 Clone the repository and start building today
               </p>
-              <div className="mt-6 flex items-center justify-center gap-4">
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href="https://github.com/benjaminykim/tutorial"
                   target="_blank"
@@ -139,15 +143,20 @@ export default function Home() {
                     View on GitHub
                   </Button>
                 </a>
-                <code className="rounded bg-muted px-3 py-1 text-sm font-mono">
+                <code className="hidden sm:block rounded bg-muted px-3 py-1 text-sm font-mono">
+                  git clone https://github.com/benjaminykim/tutorial.git
+                </code>
+              </div>
+              <div className="mt-4 sm:hidden">
+                <code className="block rounded bg-muted px-3 py-2 text-xs font-mono break-all">
                   git clone https://github.com/benjaminykim/tutorial.git
                 </code>
               </div>
             </div>
           </div>
 
-          <div className="mt-24 mb-8 text-center">
-            <p className="text-sm text-muted-foreground">
+          <div className="mt-16 sm:mt-24 mb-8 text-center px-4 sm:px-0">
+            <p className="text-xs sm:text-sm text-muted-foreground">
               proof is in the pudding: ⚡ vibe coded with Cursor on a Saturday
               afternoon
             </p>
