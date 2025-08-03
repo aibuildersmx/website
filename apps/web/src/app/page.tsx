@@ -4,8 +4,8 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex h-full flex-col items-center justify-center p-24">
-      <div className="max-w-3xl text-center">
+    <main className="min-h-screen py-24 px-8">
+      <div className="max-w-3xl mx-auto text-center">
         <h1 className="text-5xl font-bold tracking-tight">
           Learn by Coding This Site
         </h1>
@@ -36,6 +36,59 @@ export default function Home() {
             components. Follow the guides to understand each part, then use
             Cursor&apos;s AI to transform it into your own project.
           </p>
+        </div>
+        <div className="mt-12 p-6 bg-muted/50 rounded-lg max-w-2xl mx-auto">
+          <h2 className="font-semibold text-lg mb-4">What We Built For You</h2>
+          <ul className="space-y-3 text-sm text-muted-foreground text-left">
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>
+                <strong>Modern Full-Stack Foundation:</strong> Next.js 15 App
+                Router, TypeScript, Tailwind CSS, shadcn/ui components, Supabase
+                database, and Clerk authentication
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>
+                <strong>Monorepo Architecture:</strong> Turborepo setup with
+                pnpm workspaces for scalable app organization and shared
+                dependencies
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>
+                <strong>Complete Design System:</strong> Pre-built UI components
+                library with dark mode, responsive design, and consistent
+                styling patterns
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>
+                <strong>Cursor AI Rules:</strong> Custom workspace rules that
+                teach Cursor about your tech stack, coding patterns, and project
+                structure
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>
+                <strong>Developer Experience:</strong> Hot reload, TypeScript
+                strict mode, ESLint config, and clear file organization for
+                rapid development
+              </span>
+            </li>
+            <li className="flex items-start">
+              <span className="mr-2">•</span>
+              <span>
+                <strong>Production Ready:</strong> Environment variables setup,
+                database migrations, authentication middleware, and deployment
+                configurations
+              </span>
+            </li>
+          </ul>
         </div>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
           <div>
