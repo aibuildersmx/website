@@ -513,19 +513,8 @@ export default function ComponentsTestPage() {
   return (
     <SidebarProvider>
       <Sidebar>
-        <SidebarHeader>
-          <Button
-            variant="ghost"
-            className="flex justify-start items-center gap-1 w-fit"
-            onClick={() => router.push("/")}
-            aria-label="Back"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <p className="text-sm font-medium">Home</p>
-          </Button>
-        </SidebarHeader>
         <SidebarContent>
-          <SidebarGroup>
+          <SidebarGroup className="mt-12">
             <SidebarGroupContent>
               <SidebarMenu>
                 {componentCategories.map((category) => (
@@ -580,7 +569,7 @@ export default function ComponentsTestPage() {
 
         <div className="p-8 overflow-x-hidden">
           <div className="space-y-16">
-            <section id="display">
+            <section id="display" className="scroll-mt-20">
               <h2 className="text-3xl font-bold mb-8">Display Components</h2>
               <div className="grid gap-8">
                 <Card>
@@ -728,7 +717,7 @@ export default function ComponentsTestPage() {
               </div>
             </section>
 
-            <section id="feedback">
+            <section id="feedback" className="scroll-mt-16">
               <h2 className="text-3xl font-bold mb-8">Feedback Components</h2>
               <div className="grid gap-8">
                 <Card>
@@ -844,7 +833,7 @@ export default function ComponentsTestPage() {
               </div>
             </section>
 
-            <section id="forms">
+            <section id="forms" className="scroll-mt-16">
               <h2 className="text-3xl font-bold mb-8">Form Components</h2>
               <div className="grid gap-8">
                 <Card>
@@ -1044,7 +1033,7 @@ export default function ComponentsTestPage() {
               </div>
             </section>
 
-            <section id="navigation">
+            <section id="navigation" className="scroll-mt-16">
               <h2 className="text-3xl font-bold mb-8">Navigation Components</h2>
               <div className="grid gap-8">
                 <Card>
@@ -1122,7 +1111,7 @@ export default function ComponentsTestPage() {
               </div>
             </section>
 
-            <section id="overlays">
+            <section id="overlays" className="scroll-mt-16">
               <h2 className="text-3xl font-bold mb-8">Overlay Components</h2>
               <div className="grid gap-8">
                 <Card>
@@ -1265,7 +1254,7 @@ export default function ComponentsTestPage() {
               </div>
             </section>
 
-            <section id="layout">
+            <section id="layout" className="scroll-mt-16">
               <h2 className="text-3xl font-bold mb-8">Layout Components</h2>
               <div className="grid gap-8">
                 <Card>
@@ -1353,7 +1342,7 @@ export default function ComponentsTestPage() {
               </div>
             </section>
 
-            <section id="animations">
+            <section id="animations" className="scroll-mt-16">
               <h2 className="text-3xl font-bold mb-8">
                 Framer Motion Animations
               </h2>
