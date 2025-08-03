@@ -86,9 +86,9 @@ import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const CodeBlock = ({ code }: { code: string }) => (
-  <div className="w-full bg-gray-900 p-4 rounded-lg overflow-x-hidden">
-    <pre className="text-gray-100 overflow-x-scroll scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
-      <code className="text-sm whitespace-pre text-wrap">{code}</code>
+  <div className="w-full bg-gray-900 p-2 sm:p-4 rounded-lg overflow-x-hidden">
+    <pre className="text-gray-100 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900">
+      <code className="text-xs sm:text-sm whitespace-pre">{code}</code>
     </pre>
   </div>
 );
@@ -157,7 +157,7 @@ const codeExamples = {
 
   progress: `import { Progress } from "@/components/ui/progress"
 
-<Progress value={33} className="w-[60%]" />`,
+<Progress value={33} className="w-full sm:w-[60%]" />`,
 
   toast: `import { toast } from "@/hooks/use-toast"
 
@@ -235,7 +235,7 @@ const [checked, setChecked] = useState(false)
 
 <Textarea
   placeholder="Type your message here."
-  className="max-w-sm"
+  className="w-full sm:max-w-sm"
 />`,
 
   dropdown: `import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -255,7 +255,7 @@ const [checked, setChecked] = useState(false)
 
   tabs: `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-<Tabs defaultValue="account" className="w-[400px]">
+<Tabs defaultValue="account" className="w-full sm:w-[400px]">
   <TabsList>
     <TabsTrigger value="account">Account</TabsTrigger>
     <TabsTrigger value="password">Password</TabsTrigger>
@@ -427,7 +427,7 @@ const [checked, setChecked] = useState(false)
 
 const [selectedId, setSelectedId] = useState(null)
 
-<div className="grid grid-cols-3 gap-2">
+<div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
   {items.map((id) => (
     <motion.div
       key={id}
@@ -554,10 +554,10 @@ export default function ComponentsTestPage() {
       </Sidebar>
 
       <SidebarInset>
-        <header className="flex h-fit shrink-0 items-center gap-4 px-6 py-4">
-          <SidebarTrigger className="h-8 w-8" />
+        <header className="flex h-fit shrink-0 items-center gap-2 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4">
+          <SidebarTrigger className="h-7 w-7 sm:h-8 sm:w-8 hidden sm:flex justify-center items-center" />
           <div className="flex-1">
-            <h1 className="text-xl font-semibold">
+            <h1 className="text-3xl sm:text-xl font-semibold">
               UI Components & Animation Library
             </h1>
             <p className="text-muted-foreground text-sm">
@@ -567,11 +567,13 @@ export default function ComponentsTestPage() {
           </div>
         </header>
 
-        <div className="p-8 overflow-x-hidden">
-          <div className="space-y-16">
+        <div className="p-4 sm:p-6 lg:p-8 overflow-x-hidden">
+          <div className="space-y-12 sm:space-y-16">
             <section id="display" className="scroll-mt-20">
-              <h2 className="text-3xl font-bold mb-8">Display Components</h2>
-              <div className="grid gap-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">
+                Display Components
+              </h2>
+              <div className="grid gap-4 sm:gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Avatar</CardTitle>
@@ -589,8 +591,8 @@ export default function ComponentsTestPage() {
                         <AvatarFallback>JD</AvatarFallback>
                       </Avatar>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -614,14 +616,14 @@ export default function ComponentsTestPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2">
                       <Badge>Default</Badge>
                       <Badge variant="secondary">Secondary</Badge>
                       <Badge variant="outline">Outline</Badge>
                       <Badge variant="destructive">Destructive</Badge>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -645,7 +647,7 @@ export default function ComponentsTestPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
-                    <Card className="max-w-[350px] w-full">
+                    <Card className="max-w-full sm:max-w-[350px] w-full">
                       <CardHeader>
                         <CardTitle>Create project</CardTitle>
                         <CardDescription>
@@ -670,8 +672,8 @@ export default function ComponentsTestPage() {
                         <Button>Deploy</Button>
                       </CardFooter>
                     </Card>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -694,12 +696,12 @@ export default function ComponentsTestPage() {
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
                     <div className="space-y-2">
-                      <Skeleton className="h-4 w-[250px]" />
-                      <Skeleton className="h-4 w-[200px]" />
-                      <Skeleton className="h-4 w-[150px]" />
+                      <Skeleton className="h-4 w-full sm:w-[250px]" />
+                      <Skeleton className="h-4 w-3/4 sm:w-[200px]" />
+                      <Skeleton className="h-4 w-1/2 sm:w-[150px]" />
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -718,8 +720,10 @@ export default function ComponentsTestPage() {
             </section>
 
             <section id="feedback" className="scroll-mt-16">
-              <h2 className="text-3xl font-bold mb-8">Feedback Components</h2>
-              <div className="grid gap-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">
+                Feedback Components
+              </h2>
+              <div className="grid gap-4 sm:gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Alert</CardTitle>
@@ -742,8 +746,8 @@ export default function ComponentsTestPage() {
                         </AlertDescription>
                       </Alert>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -768,7 +772,10 @@ export default function ComponentsTestPage() {
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
                     <div>
-                      <Progress value={progress} className="w-[60%]" />
+                      <Progress
+                        value={progress}
+                        className="w-full sm:w-[60%]"
+                      />
                       <div className="mt-4">
                         <Button
                           onClick={() =>
@@ -779,8 +786,8 @@ export default function ComponentsTestPage() {
                         </Button>
                       </div>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -814,8 +821,8 @@ export default function ComponentsTestPage() {
                     >
                       Show Toast
                     </Button>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -834,8 +841,10 @@ export default function ComponentsTestPage() {
             </section>
 
             <section id="forms" className="scroll-mt-16">
-              <h2 className="text-3xl font-bold mb-8">Form Components</h2>
-              <div className="grid gap-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">
+                Form Components
+              </h2>
+              <div className="grid gap-4 sm:gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Button</CardTitle>
@@ -855,8 +864,8 @@ export default function ComponentsTestPage() {
                       <Button size="lg">Large</Button>
                       <Button disabled>Disabled</Button>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -880,7 +889,7 @@ export default function ComponentsTestPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
-                    <div className="space-y-4 max-w-sm">
+                    <div className="space-y-4 w-full sm:max-w-sm">
                       <div className="space-y-2">
                         <Label htmlFor="email">Your email address</Label>
                         <Input type="email" id="email" placeholder="Email" />
@@ -888,8 +897,8 @@ export default function ComponentsTestPage() {
                       <Input type="password" placeholder="Password" />
                       <Input disabled placeholder="Disabled input" />
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -921,8 +930,8 @@ export default function ComponentsTestPage() {
                       />
                       <Label htmlFor="terms">Accept terms and conditions</Label>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -952,8 +961,8 @@ export default function ComponentsTestPage() {
                       />
                       <Label htmlFor="airplane-mode">Airplane Mode</Label>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -987,8 +996,8 @@ export default function ComponentsTestPage() {
                         <SelectItem value="orange">Orange</SelectItem>
                       </SelectContent>
                     </Select>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1012,10 +1021,10 @@ export default function ComponentsTestPage() {
                   <CardContent className="space-y-4 overflow-hidden">
                     <Textarea
                       placeholder="Type your message here."
-                      className="max-w-sm"
+                      className="w-full sm:max-w-sm"
                     />
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1034,8 +1043,10 @@ export default function ComponentsTestPage() {
             </section>
 
             <section id="navigation" className="scroll-mt-16">
-              <h2 className="text-3xl font-bold mb-8">Navigation Components</h2>
-              <div className="grid gap-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">
+                Navigation Components
+              </h2>
+              <div className="grid gap-4 sm:gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Dropdown Menu</CardTitle>
@@ -1057,8 +1068,8 @@ export default function ComponentsTestPage() {
                         <DropdownMenuItem>Subscription</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1082,7 +1093,10 @@ export default function ComponentsTestPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
-                    <Tabs defaultValue="account" className="w-[400px]">
+                    <Tabs
+                      defaultValue="account"
+                      className="w-full sm:w-[400px]"
+                    >
                       <TabsList>
                         <TabsTrigger value="account">Account</TabsTrigger>
                         <TabsTrigger value="password">Password</TabsTrigger>
@@ -1094,8 +1108,8 @@ export default function ComponentsTestPage() {
                         <p>Change your password here.</p>
                       </TabsContent>
                     </Tabs>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1112,8 +1126,10 @@ export default function ComponentsTestPage() {
             </section>
 
             <section id="overlays" className="scroll-mt-16">
-              <h2 className="text-3xl font-bold mb-8">Overlay Components</h2>
-              <div className="grid gap-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">
+                Overlay Components
+              </h2>
+              <div className="grid gap-4 sm:gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Dialog</CardTitle>
@@ -1135,21 +1151,24 @@ export default function ComponentsTestPage() {
                           </DialogDescription>
                         </DialogHeader>
                         <div className="grid gap-4 py-4">
-                          <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="dialog-name" className="text-right">
+                          <div className="grid grid-cols-1 sm:grid-cols-4 items-center gap-4">
+                            <Label
+                              htmlFor="dialog-name"
+                              className="sm:text-right"
+                            >
                               Name
                             </Label>
                             <Input
                               id="dialog-name"
                               defaultValue="Pedro Duarte"
-                              className="col-span-3"
+                              className="sm:col-span-3"
                             />
                           </div>
                         </div>
                       </DialogContent>
                     </Dialog>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1193,8 +1212,8 @@ export default function ComponentsTestPage() {
                         </AlertDialogFooter>
                       </AlertDialogContent>
                     </AlertDialog>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1235,8 +1254,8 @@ export default function ComponentsTestPage() {
                         </div>
                       </PopoverContent>
                     </Popover>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1255,8 +1274,10 @@ export default function ComponentsTestPage() {
             </section>
 
             <section id="layout" className="scroll-mt-16">
-              <h2 className="text-3xl font-bold mb-8">Layout Components</h2>
-              <div className="grid gap-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">
+                Layout Components
+              </h2>
+              <div className="grid gap-4 sm:gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Accordion</CardTitle>
@@ -1280,8 +1301,8 @@ export default function ComponentsTestPage() {
                         </AccordionContent>
                       </AccordionItem>
                     </Accordion>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1323,8 +1344,8 @@ export default function ComponentsTestPage() {
                         <div>Source</div>
                       </div>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1343,10 +1364,10 @@ export default function ComponentsTestPage() {
             </section>
 
             <section id="animations" className="scroll-mt-16">
-              <h2 className="text-3xl font-bold mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">
                 Framer Motion Animations
               </h2>
-              <div className="grid gap-8">
+              <div className="grid gap-4 sm:gap-8">
                 <Card>
                   <CardHeader>
                     <CardTitle>Fade In/Out Animation</CardTitle>
@@ -1375,8 +1396,8 @@ export default function ComponentsTestPage() {
                         )}
                       </AnimatePresence>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1401,7 +1422,7 @@ export default function ComponentsTestPage() {
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
                     <motion.div
-                      className="w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg mx-auto"
+                      className="w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg mx-auto"
                       whileHover={{ scale: 1.2, rotate: 180 }}
                       whileTap={{ scale: 0.9 }}
                       transition={{
@@ -1410,8 +1431,8 @@ export default function ComponentsTestPage() {
                         damping: 20,
                       }}
                     />
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1466,8 +1487,8 @@ export default function ComponentsTestPage() {
                         </motion.li>
                       ))}
                     </motion.ul>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1491,9 +1512,9 @@ export default function ComponentsTestPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
-                    <div className="relative h-64 bg-gray-50 rounded-lg overflow-hidden">
+                    <div className="relative h-48 sm:h-64 bg-gray-50 rounded-lg overflow-hidden">
                       <motion.div
-                        className="w-20 h-20 bg-green-500 rounded-lg cursor-move absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                        className="w-16 h-16 sm:w-20 sm:h-20 bg-green-500 rounded-lg cursor-move absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                         drag
                         dragConstraints={{
                           top: -100,
@@ -1505,8 +1526,8 @@ export default function ComponentsTestPage() {
                         whileDrag={{ scale: 1.1 }}
                       />
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1531,13 +1552,13 @@ export default function ComponentsTestPage() {
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
                     <div>
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                         {["1", "2", "3", "4", "5", "6"].map((id) => (
                           <motion.div
                             key={id}
                             layoutId={id}
                             onClick={() => setSelectedId(id)}
-                            className="p-8 bg-orange-400 rounded cursor-pointer text-white font-bold text-center"
+                            className="p-4 sm:p-8 bg-orange-400 rounded cursor-pointer text-white font-bold text-center"
                             whileHover={{ scale: 0.95 }}
                           >
                             {id}
@@ -1551,15 +1572,15 @@ export default function ComponentsTestPage() {
                             className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
                             onClick={() => setSelectedId(null)}
                           >
-                            <motion.div className="bg-orange-400 p-20 rounded-lg text-white text-4xl font-bold">
+                            <motion.div className="bg-orange-400 p-12 sm:p-20 rounded-lg text-white text-2xl sm:text-4xl font-bold">
                               {selectedId}
                             </motion.div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1584,10 +1605,8 @@ export default function ComponentsTestPage() {
                   </CardHeader>
                   <CardContent className="space-y-4 overflow-hidden">
                     <svg
-                      width="200"
-                      height="200"
                       viewBox="0 0 200 200"
-                      className="mx-auto"
+                      className="mx-auto w-full max-w-[200px] h-auto"
                     >
                       <motion.path
                         d="M 10 100 Q 100 10 190 100 T 190 100"
@@ -1604,8 +1623,8 @@ export default function ComponentsTestPage() {
                         }}
                       />
                     </svg>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1638,8 +1657,8 @@ export default function ComponentsTestPage() {
                     >
                       Hover and Click Me
                     </motion.button>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -1674,8 +1693,8 @@ export default function ComponentsTestPage() {
                         I animate when you scroll to me!
                       </p>
                     </motion.div>
-                    <Separator />
-                    <div>
+                    <Separator className="hidden sm:block" />
+                    <div className="hidden sm:block">
                       <Button
                         variant="ghost"
                         size="sm"
