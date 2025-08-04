@@ -61,7 +61,7 @@ export function Footer() {
 
             <div>
               <h3 className="mb-4 text-lg font-semibold">Created By</h3>
-              <div className="space-y-3 text-sm">
+              <div className="space-y-2 text-sm">
                 <div className="flex gap-3 mt-1 items-center">
                   <p className="text-muted-foreground">Javier Rivero</p>
                   <a
