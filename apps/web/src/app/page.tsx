@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code2, Sparkles, Rocket, Github } from "lucide-react";
+import { TypingEffect } from "@/components/typing-effect";
 
 export default function Home() {
   return (
@@ -19,9 +20,8 @@ export default function Home() {
             </div>
 
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Get started and vibe
-              <br />
-              code with AI
+              Vibe code a<br />
+              <TypingEffect />
             </h1>
 
             <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground max-w-xl mx-auto px-4 sm:px-0">
