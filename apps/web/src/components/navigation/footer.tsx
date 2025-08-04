@@ -10,7 +10,6 @@ import {
   Twitter,
   X,
 } from "lucide-react";
-import { ShimmerText } from "../ui/shimmer-text";
 import { Copyright } from "../aibuilder/copyright";
 
 export function Footer() {

@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Sparkles, Rocket, Github } from "lucide-react";
+import {
+  ArrowRight,
+  Code2,
+  Sparkles,
+  Rocket,
+  Github,
+  MessageCircle,
+} from "lucide-react";
 import { TypingEffect } from "@/components/aibuilder/typing-effect";
-import { ShimmerText } from "@/components/ui/shimmer-text";
 
 export default function Home() {
   return (
@@ -121,6 +127,35 @@ export default function Home() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="mx-auto mt-12 sm:mt-16 max-w-2xl px-4 sm:px-0">
+            <div className="rounded-2xl bg-gradient-to-r from-primary/10 to-primary/5 p-6 sm:p-8 shadow-sm ring-1 ring-primary/20">
+              <div className="text-center">
+                <h2 className="mt-4 text-xl sm:text-2xl font-bold tracking-tight flex items-center justify-center gap-2">
+                  Need help? Join our community
+                </h2>
+                <p className="mt-2 text-sm sm:text-base text-muted-foreground">
+                  Connect with fellow builders, get help, and share your
+                  projects
+                </p>
+                <div className="mt-6">
+                  <a
+                    href="https://chat.whatsapp.com/E7oCGyITLkX1aqFexJbbHm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      size="lg"
+                      className="gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                      Join On WhatsApp
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
