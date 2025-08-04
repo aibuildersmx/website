@@ -36,7 +36,7 @@ export function WorkshopCard({
 }: WorkshopCardProps) {
   return (
     <Card
-      className={`relative overflow-hidden bg-neutral-900 border-neutral-800 flex flex-col ${
+      className={`relative overflow-hidden bg-neutral-900 border-neutral-800 flex flex-col transition-transform duration-200 hover:-translate-y-1 ${
         isCompleted ? "opacity-60" : ""
       }`}
     >

@@ -1,20 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { MapPin, Users, Check } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Section } from "@/components/ui/section";
 import { WorkshopCard } from "@/components/workshop-card";
+import { FAQSection } from "@/components/faq-section";
 
 export default function Home() {
   const [activeStep, setActiveStep] = useState("1");
@@ -120,7 +111,7 @@ export default function Home() {
       </Section>
 
       {/* What We Do Section */}
-      <Section className="py-20" variant="muted">
+      <Section className="py-20" variant="muted" id="learn">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-light mb-4 font-serif">¿Qué Hacemos?</h2>
         </div>
@@ -357,85 +348,7 @@ export default function Home() {
       </Section>
 
       {/* FAQs Section */}
-      <Section id="faqs" className="py-20">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-bold mb-4 font-serif">
-              Preguntas
-              <br />
-              Frecuentes
-            </h2>
-            <p className="text-muted-foreground">
-              Todo lo que quieres saber sobre Código con IA.
-            </p>
-          </div>
-          <div>
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger>¿Qué es AI Builders Mexico?</AccordionTrigger>
-                <AccordionContent>
-                  Somos la primera comunidad de builders de IA en México.
-                  Organizamos workshops, sesiones de coworking y meetups donde
-                  aprendes a usar herramientas como Cursor, Lovable y v0 para
-                  crear productos digitales reales.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger>
-                  ¿Necesito saber programar para participar?
-                </AccordionTrigger>
-                <AccordionContent>
-                  ¡No! Nuestros workshops están diseñados específicamente para
-                  personas sin conocimiento de código. Te enseñamos a usar
-                  herramientas de IA que hacen la programación accesible para
-                  todos.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger>
-                  ¿Qué son las Vibe Coding Sessions?
-                </AccordionTrigger>
-                <AccordionContent>
-                  Son sesiones de coworking donde builders se reúnen para
-                  trabajar en sus proyectos, compartir conocimientos y colaborar
-                  en un ambiente dinámico. Perfecto para mantener el momentum y
-                  conocer a otros creadores.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-4">
-                <AccordionTrigger>
-                  ¿Dónde se realizan los eventos?
-                </AccordionTrigger>
-                <AccordionContent>
-                  Organizamos eventos presenciales en Ciudad de México,
-                  Guadalajara y Monterrey, así como workshops virtuales. También
-                  tenemos meetups oficiales de Cursor en diferentes ciudades.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-5">
-                <AccordionTrigger>
-                  ¿Qué herramientas voy a aprender?
-                </AccordionTrigger>
-                <AccordionContent>
-                  Te enseñamos a dominar Cursor, Lovable y v0 - las herramientas
-                  de IA más avanzadas para crear prototipos y aplicaciones web
-                  sin escribir código desde cero.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-6">
-                <AccordionTrigger>
-                  ¿Cómo me uno a la comunidad?
-                </AccordionTrigger>
-                <AccordionContent>
-                  Puedes unirte gratis a nuestra comunidad de WhatsApp usando el
-                  enlace en la página. Para workshops y eventos, inscríbete a
-                  través de los botones correspondientes.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-      </Section>
+      <FAQSection />
 
       {/* CTA Section */}
       <Section className="py-20" variant="muted">
