@@ -156,19 +156,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <div className="mt-16 sm:mt-24 mb-8 text-center px-4 sm:px-0">
-            <a
-              href="https://aibuilders.mx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary hover:underline transition-colors text-muted-foreground"
-            >
-              <ShimmerText className="text-xs sm:text-sm">
-                ⚡ made by aibuilders.mx
-              </ShimmerText>
-            </a>
-          </div>
         </div>
 
         <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
