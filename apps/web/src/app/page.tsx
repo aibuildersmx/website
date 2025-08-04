@@ -17,7 +17,7 @@ export default function Home() {
         containerClassName="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center"
       >
         <div className="text-center lg:text-left">
-          <h1 className="text-4xl font-light tracking-tight sm:text-6xl mb-6 font-serif">
+          <h1 className="text-4xl font-light tracking-tight sm:text-6xl mb-6 font-serif sm:pt-0 pt-16">
             La Primer Comunidad de AI en México
           </h1>
           <p className="text-xl text-muted-foreground mb-8">
