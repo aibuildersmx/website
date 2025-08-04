@@ -65,7 +65,9 @@ export function FAQSection() {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq) => (
               <AccordionItem key={faq.id} value={faq.id}>
-                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionTrigger className="font-sans">
+                  {faq.question}
+                </AccordionTrigger>
                 <AccordionContent>{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}

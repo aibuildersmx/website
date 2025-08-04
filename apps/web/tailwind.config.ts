@@ -13,6 +13,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "sans-serif"],
+        serif: ["var(--font-instrument-serif)", "Instrument Serif", "serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

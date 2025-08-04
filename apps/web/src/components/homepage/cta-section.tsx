@@ -26,9 +26,9 @@ export function CTASection() {
           Únete a la comunidad
         </Button>
         <div className="mt-12">
-          <h3 className="text-xl font-semibold mb-4 text-muted-foreground">
+          <p className="text-xl mb-4 text-muted-foreground">
             ¿Quieres probar a construir algo con IA?
-          </h3>
+          </p>
           <Button size="lg" asChild variant="outline">
             <a
               href="https://learn.aibuilders.mx"
