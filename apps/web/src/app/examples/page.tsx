@@ -237,19 +237,27 @@ function DrawingCanvas() {
   const [paths, setPaths] = useState<string[]>([]);
   const [currentPath, setCurrentPath] = useState("");
 
-  const startDrawing = (e: React.MouseEvent<SVGSVGElement>) => {
+  const startDrawing = (
+    e: React.MouseEvent<SVGSVGElement> | React.TouchEvent<SVGSVGElement>
+  ) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
     setIsDrawing(true);
     setCurrentPath(`M ${x} ${y}`);
   };
 
-  const draw = (e: React.MouseEvent<SVGSVGElement>) => {
+  const draw = (
+    e: React.MouseEvent<SVGSVGElement> | React.TouchEvent<SVGSVGElement>
+  ) => {
     if (!isDrawing) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    const clientY = "touches" in e ? e.touches[0].clientY : e.clientY;
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
     setCurrentPath((prev) => `${prev} L ${x} ${y}`);
   };
 
@@ -276,7 +284,10 @@ function DrawingCanvas() {
           onMouseMove={draw}
           onMouseUp={stopDrawing}
           onMouseLeave={stopDrawing}
-          className="cursor-crosshair"
+          onTouchStart={startDrawing}
+          onTouchMove={draw}
+          onTouchEnd={stopDrawing}
+          className="cursor-crosshair touch-none"
         >
           {paths.map((path, index) => (
             <path
