@@ -131,7 +131,7 @@ function AnimatedGradient() {
         }}
       />
       <div className="relative z-10 flex items-center justify-center h-full">
-        <h3 className="text-2xl font-bold text-white drop-shadow-lg">
+        <h3 className="text-2xl font-bold text-white drop-shadow-lg text-center">
           Smooth Color Transitions
         </h3>
       </div>
@@ -152,9 +152,9 @@ function AnalogClock() {
   const minutes = time.getMinutes();
   const hours = time.getHours() % 12;
 
-  const secondAngle = seconds * 6 - 90;
-  const minuteAngle = minutes * 6 + seconds * 0.1 - 90;
-  const hourAngle = hours * 30 + minutes * 0.5 - 90;
+  const secondAngle = seconds * 6;
+  const minuteAngle = minutes * 6 + seconds * 0.1;
+  const hourAngle = hours * 30 + minutes * 0.5;
 
   return (
     <div className="flex items-center justify-center">
