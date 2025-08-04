@@ -41,6 +41,8 @@ export default function Home() {
             width={300}
             height={300}
             className="rounded-lg object-cover aspect-square w-full hover:scale-105 transition-all duration-500"
+            priority
+            sizes="(max-width: 768px) 50vw, 25vw"
           />
           <Image
             src="/images/hero2.jpg"
@@ -48,6 +50,8 @@ export default function Home() {
             width={300}
             height={300}
             className="rounded-lg object-cover aspect-square w-full hover:scale-105 transition-all duration-500"
+            priority
+            sizes="(max-width: 768px) 50vw, 25vw"
           />
           <Image
             src="/images/hero3.jpg"
@@ -55,6 +59,8 @@ export default function Home() {
             width={300}
             height={300}
             className="rounded-lg object-cover aspect-square w-full hover:scale-105 transition-all duration-500"
+            loading="lazy"
+            sizes="(max-width: 768px) 50vw, 25vw"
           />
           <Image
             src="/images/hero4.jpg"
@@ -62,6 +68,8 @@ export default function Home() {
             width={300}
             height={300}
             className="rounded-lg object-cover aspect-square w-full hover:scale-105 transition-all duration-500"
+            loading="lazy"
+            sizes="(max-width: 768px) 50vw, 25vw"
           />
         </div>
       </Section>

@@ -88,6 +88,8 @@ export function WhatWeDoSection() {
             width={600}
             height={400}
             className="rounded-lg object-cover w-full h-[400px]"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="lazy"
           />
         </div>
       </div>
@@ -104,6 +106,8 @@ export function WhatWeDoSection() {
             width={600}
             height={400}
             className="rounded-lg object-cover w-full h-[400px]"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="lazy"
           />
         </div>
         <div>
@@ -158,6 +162,8 @@ export function WhatWeDoSection() {
             width={600}
             height={400}
             className="rounded-lg object-cover w-full h-[400px]"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            loading="lazy"
           />
         </div>
       </div>

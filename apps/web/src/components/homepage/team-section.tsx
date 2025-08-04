@@ -18,6 +18,8 @@ export function TeamSection() {
               alt="Javier Rivero"
               fill
               className="aspect-square rounded-lg object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[0.95]"
+              sizes="(max-width: 768px) 200px, 300px"
+              loading="lazy"
             />
           </div>
           <div className="pt-4 px-2">
@@ -42,6 +44,8 @@ export function TeamSection() {
               alt="Ben Kim"
               fill
               className="aspect-square rounded-lg object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-[0.95]"
+              sizes="(max-width: 768px) 200px, 300px"
+              loading="lazy"
             />
           </div>
           <div className="pt-4 px-2">
