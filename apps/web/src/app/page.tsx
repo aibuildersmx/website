@@ -16,7 +16,7 @@ export default function Home() {
         className="min-h-screen flex items-center justify-center"
         containerClassName="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center"
       >
-        <div>
+        <div className="text-center lg:text-left">
           <h1 className="text-4xl font-light tracking-tight sm:text-6xl mb-6 font-serif">
             La Primer Comunidad de AI en México
           </h1>
@@ -24,15 +24,17 @@ export default function Home() {
             Somos una comunidad de builders que transformamos ideas en productos
             digitales reales usando IA como nuestro superpoder.
           </p>
-          <Button size="lg" asChild animated>
-            <a
-              href="https://chat.whatsapp.com/EiadTAJlAyrJI5EI5bPF3t"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Únete a nuestra comunidad
-            </a>
-          </Button>
+          <div className="flex justify-center lg:justify-start">
+            <Button size="lg" asChild animated>
+              <a
+                href="https://chat.whatsapp.com/EiadTAJlAyrJI5EI5bPF3t"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Únete a nuestra comunidad
+              </a>
+            </Button>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <Image

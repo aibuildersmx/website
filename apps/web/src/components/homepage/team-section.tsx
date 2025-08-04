@@ -22,7 +22,7 @@ export function TeamSection() {
               loading="lazy"
             />
           </div>
-          <div className="pt-4 px-2">
+          <div className="pt-4 px-2 text-center">
             <div className="flex justify-between items-baseline mb-2">
               <h3 className="text-base font-medium tracking-normal transition-[letter-spacing] duration-500 group-hover:tracking-wider">
                 Javier Rivero
@@ -48,7 +48,7 @@ export function TeamSection() {
               loading="lazy"
             />
           </div>
-          <div className="pt-4 px-2">
+          <div className="pt-4 px-2 text-center">
             <div className="flex justify-between items-baseline mb-2">
               <h3 className="text-base font-medium tracking-normal transition-[letter-spacing] duration-500 group-hover:tracking-wider">
                 Ben Kim

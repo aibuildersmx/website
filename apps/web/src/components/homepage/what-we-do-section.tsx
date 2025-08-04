@@ -64,14 +64,14 @@ export function WhatWeDoSection() {
       >
         <div className="order-2 lg:order-1">
           <div
-            className={`flex items-start gap-6 transition-opacity duration-500 ${
+            className={`flex flex-col sm:flex-row items-center sm:items-start gap-6 transition-opacity duration-500 ${
               activeStep === "1" ? "opacity-100" : "opacity-40"
             }`}
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black text-xl font-bold shrink-0">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black text-xl font-bold shrink-0 mx-auto sm:mx-0">
               1
             </div>
-            <div>
+            <div className="text-center sm:text-left">
               <h3 className="text-2xl font-semibold mb-4">
                 {stepContent["1"].title}
               </h3>
@@ -112,14 +112,14 @@ export function WhatWeDoSection() {
         </div>
         <div>
           <div
-            className={`flex items-start gap-6 transition-opacity duration-500 ${
+            className={`flex flex-col sm:flex-row items-center sm:items-start gap-6 transition-opacity duration-500 ${
               activeStep === "2" ? "opacity-100" : "opacity-40"
             }`}
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black text-xl font-bold shrink-0">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black text-xl font-bold shrink-0 mx-auto sm:mx-0">
               2
             </div>
-            <div>
+            <div className="text-center sm:text-left">
               <h3 className="text-2xl font-semibold mb-4">
                 {stepContent["2"].title}
               </h3>
@@ -138,14 +138,14 @@ export function WhatWeDoSection() {
       >
         <div className="order-2 lg:order-1">
           <div
-            className={`flex items-start gap-6 transition-opacity duration-500 ${
+            className={`flex flex-col sm:flex-row items-center sm:items-start gap-6 transition-opacity duration-500 ${
               activeStep === "3" ? "opacity-100" : "opacity-40"
             }`}
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black text-xl font-bold shrink-0">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black text-xl font-bold shrink-0 mx-auto sm:mx-0">
               3
             </div>
-            <div>
+            <div className="text-center sm:text-left">
               <h3 className="text-2xl font-semibold mb-4">
                 {stepContent["3"].title}
               </h3>

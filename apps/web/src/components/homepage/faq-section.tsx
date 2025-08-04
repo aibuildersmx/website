@@ -51,7 +51,7 @@ export function FAQSection() {
   return (
     <Section id="faqs" className="py-20">
       <div className="grid gap-12 lg:grid-cols-2">
-        <div>
+        <div className="text-center lg:text-left">
           <h2 className="text-3xl font-bold mb-4 font-serif">
             Preguntas
             <br />
