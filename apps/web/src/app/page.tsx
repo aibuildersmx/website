@@ -13,7 +13,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-6 sm:mb-8 flex justify-center">
-              <div className="relative rounded-full px-3 py-1 text-xs sm:text-sm leading-6 text-muted-foreground ring-1 ring-border hover:ring-primary/20">
+              <div className="relative rounded-full px-3 py-1 text-xs sm:text-sm leading-6 text-muted-foreground ring-1 ring-border hover:ring-primary/20 cursor-default">
                 Built with Next.js 15 + Supabase + Clerk + Cursor AI
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 A production-ready fullstack template optimized for AI-assisted development with Cursor. Features a modern tech stack, pre-configured authentication, and comprehensive component library.
 
-🔗 **[Live Demo](https://tutorial-vibe-mx.vercel.app/)**
+🔗 **[Live Link](https://learn.aibuilders.mx/)**
 
 ## 🚀 Features
 
