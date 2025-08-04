@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Instrument_Serif } from "next/font/google";
 import { Providers } from "./providers";
 import { Toaster } from "@/components/ui/toaster";
 import { Navigation } from "@/components/navigation/navigation";
 import { FooterWrapper } from "@/components/navigation/footer";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const instrumentSerif = Instrument_Serif({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
+});
 
 export const metadata: Metadata = {
   title: "AI Builders México",
   description:
-    "Community, workshops, and events for Mexico City's AI ecosystem.",
+    "La primera comunidad de builders de IA en México. Workshops, eventos y sesiones de coworking para aprender a programar con IA.",
 };
 
 export default function RootLayout({
@@ -20,12 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="es" suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${instrumentSerif.variable} font-sans`}
+      >
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Navigation />
-            <main className="flex-1 pt-14">{children}</main>
+            <main className="flex-1">{children}</main>
             <FooterWrapper />
           </div>
         </Providers>

@@ -40,6 +40,15 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="https://learn.aibuilders.mx"
+                    className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
+                  >
+                    <LinkIcon className="h-3 w-3" />
+                    learn.aibuilders.mx
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="https://chat.whatsapp.com/E7oCGyITLkX1aqFexJbbHm"
                     className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
                   >
