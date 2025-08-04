@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code2, Sparkles, Rocket, Github } from "lucide-react";
-import { TypingEffect } from "@/components/typing-effect";
+import { TypingEffect } from "@/components/aibuilder/typing-effect";
 import { ShimmerText } from "@/components/ui/shimmer-text";
 
 export default function Home() {
