@@ -11,6 +11,7 @@ import {
   X,
 } from "lucide-react";
 import { ShimmerText } from "../ui/shimmer-text";
+import { Copyright } from "../aibuilder/copyright";
 
 export function Footer() {
   return (
@@ -106,16 +107,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <a
-            href="https://aibuilders.mx"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary hover:underline transition-colors text-muted-foreground"
-          >
-            <ShimmerText className="text-xs sm:text-sm">
-              ⚡ made by aibuilders.mx
-            </ShimmerText>
-          </a>
+          <Copyright />
         </div>
       </div>
     </footer>
@@ -127,16 +119,7 @@ export function FooterMinified() {
     <footer className="border-t bg-background">
       <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <a
-            href="https://aibuilders.mx"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary hover:underline transition-colors text-muted-foreground"
-          >
-            <ShimmerText className="text-sm">
-              ⚡ made by aibuilders.mx
-            </ShimmerText>
-          </a>
+          <Copyright />
           <div className="flex items-center gap-4">
             <Link
               href="https://aibuilders.mx"
