@@ -14,6 +14,7 @@ export function CTASection() {
           nuestros eventos y talleres
         </p>
         <Button
+          animated
           size="lg"
           className="bg-white text-black hover:bg-gray-100"
           onClick={() =>
@@ -29,7 +30,7 @@ export function CTASection() {
           <p className="text-xl mb-4 text-muted-foreground">
             ¿Quieres probar a construir algo con IA?
           </p>
-          <Button size="lg" asChild variant="outline">
+          <Button animated size="lg" asChild variant="outline">
             <a
               href="https://learn.aibuilders.mx"
               target="_blank"

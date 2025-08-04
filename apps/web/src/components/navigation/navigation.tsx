@@ -91,7 +91,9 @@ export function Navigation() {
                       rel="noopener noreferrer"
                       className="mt-4"
                     >
-                      <Button className="w-full">Únete a la comunidad</Button>
+                      <Button className="w-full" animated>
+                        Únete a la comunidad
+                      </Button>
                     </a>
                   </nav>
                 </SheetContent>

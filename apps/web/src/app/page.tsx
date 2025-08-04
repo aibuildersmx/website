@@ -24,7 +24,7 @@ export default function Home() {
             Somos una comunidad de builders que transformamos ideas en productos
             digitales reales usando IA como nuestro superpoder.
           </p>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild animated>
             <a
               href="https://chat.whatsapp.com/EiadTAJlAyrJI5EI5bPF3t"
               target="_blank"
