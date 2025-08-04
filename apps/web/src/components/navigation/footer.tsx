@@ -16,10 +16,11 @@ export function Footer() {
     <footer className="border-t bg-background">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row gap-8 justify-between">
-          <div className="max-w-sm">
+          <div className="w-fit">
             <h3 className="mb-4 text-lg font-semibold">AI Builders México</h3>
             <p className="text-sm text-muted-foreground">
-              Building the future of AI in Mexico, one project at a time.
+              Community, workshops, and events for Mexico City&apos;s AI
+              ecosystem.
             </p>
           </div>
 
@@ -61,7 +62,7 @@ export function Footer() {
               <h3 className="mb-4 text-lg font-semibold">Created By</h3>
               <div className="space-y-3 text-sm">
                 <div className="flex gap-3 mt-1 items-center">
-                  <p className="font-medium">Javier Rivero</p>
+                  <p className="text-muted-foreground">Javier Rivero</p>
                   <a
                     href="https://www.linkedin.com/in/javierriveroe/"
                     className="text-muted-foreground hover:text-foreground transition-colors"
@@ -80,7 +81,7 @@ export function Footer() {
                   </a>
                 </div>
                 <div className="flex gap-3 mt-1 items-center">
-                  <p className="font-medium">Ben Kim</p>
+                  <p className="text-muted-foreground">Ben Kim</p>
                   <a
                     href="https://www.linkedin.com/in/benkimbuilds/"
                     className="text-muted-foreground hover:text-foreground transition-colors"
