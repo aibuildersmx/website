@@ -607,7 +607,7 @@ export default function GettingStartedPage() {
                     <div className="relative group">
                       <pre className="bg-muted p-3 rounded-lg overflow-x-auto">
                         <code className="text-sm">
-                          git clone https://github.com/benjaminykim/tutorial.git
+                          git clone https://github.com/aibuildersmx/learn.git
                         </code>
                       </pre>
                       <Button

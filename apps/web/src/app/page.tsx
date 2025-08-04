@@ -19,7 +19,9 @@ export default function Home() {
             </div>
 
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Get started and vibe code with AI
+              Get started and vibe
+              <br />
+              code with AI
             </h1>
 
             <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground max-w-xl mx-auto px-4 sm:px-0">
@@ -134,7 +136,7 @@ export default function Home() {
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="https://github.com/benjaminykim/tutorial"
+                  href="https://github.com/aibuildersmx/learn"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -144,12 +146,12 @@ export default function Home() {
                   </Button>
                 </a>
                 <code className="hidden sm:block rounded bg-muted px-3 py-1 text-sm font-mono">
-                  git clone https://github.com/benjaminykim/tutorial.git
+                  git clone https://github.com/aibuildersmx/learn.git
                 </code>
               </div>
               <div className="mt-4 sm:hidden">
                 <code className="block rounded bg-muted px-3 py-2 text-xs font-mono break-all">
-                  git clone https://github.com/benjaminykim/tutorial.git
+                  git clone https://github.com/aibuildersmx/learn.git
                 </code>
               </div>
             </div>
@@ -157,8 +159,14 @@ export default function Home() {
 
           <div className="mt-16 sm:mt-24 mb-8 text-center px-4 sm:px-0">
             <p className="text-xs sm:text-sm text-muted-foreground">
-              proof is in the pudding: ⚡ vibe coded with Cursor on a Saturday
-              afternoon
+              <a
+                href="https://aibuilders.mx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary hover:underline transition-colors"
+              >
+                ⚡ made by aibuilders.mx
+              </a>
             </p>
           </div>
         </div>
