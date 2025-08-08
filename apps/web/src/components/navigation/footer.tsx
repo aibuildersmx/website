@@ -74,6 +74,14 @@ export function Footer() {
                 <div className="flex gap-3 mt-1 items-center">
                   <p className="text-muted-foreground">Javier Rivero</p>
                   <a
+                    href="https://javierivero.com"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkIcon className="h-3 w-3" />
+                  </a>
+                  <a
                     href="https://www.linkedin.com/in/javierriveroe/"
                     className="text-muted-foreground hover:text-foreground transition-colors"
                     target="_blank"
@@ -92,6 +100,14 @@ export function Footer() {
                 </div>
                 <div className="flex gap-3 mt-1 items-center">
                   <p className="text-muted-foreground">Ben Kim</p>
+                  <a
+                    href="https://www.ben-k.im"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LinkIcon className="h-3 w-3" />
+                  </a>
                   <a
                     href="https://www.linkedin.com/in/benkimbuilds/"
                     className="text-muted-foreground hover:text-foreground transition-colors"
